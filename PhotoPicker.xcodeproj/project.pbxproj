@@ -17,6 +17,7 @@
 		B05737A92B5FAB210089267C /* PhotoPickerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737A82B5FAB210089267C /* PhotoPickerUITestsLaunchTests.swift */; };
 		B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737B92B5FB0480089267C /* UIView+Extension.swift */; };
 		B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */; };
+		B05737C02B5FEAC80089267C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737BF2B5FEAC80089267C /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		B05737A82B5FAB210089267C /* PhotoPickerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B05737B92B5FB0480089267C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		B05737BF2B5FEAC80089267C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		B05737B72B5FAFA00089267C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B05737BE2B5FEABA0089267C /* Utils */,
 				B05737B82B5FB0310089267C /* Extensions */,
 			);
 			path = Utility;
@@ -160,6 +163,14 @@
 				B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B05737BE2B5FEABA0089267C /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B05737BF2B5FEAC80089267C /* Utils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +308,7 @@
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
+				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
