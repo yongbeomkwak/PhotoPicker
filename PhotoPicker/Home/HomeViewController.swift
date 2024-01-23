@@ -32,7 +32,6 @@ class HomeViewController: UIViewController {
         configureCommonUI()
         addSubview()
         configureUI()
-        
     }
 
 
@@ -47,9 +46,17 @@ extension HomeViewController {
     func configureUI() {
         // 버튼의 레이아웃 설정.
         photoPickerButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        photoPickerButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        photoPickerButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -80).isActive = true
         photoPickerButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        photoPickerButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        photoPickerButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    }
+    
+    func setTest() {
+        photoPickerButton.accessibilityIdentifier = "abc"
+    }
+    
+    @objc func btnClick() {
+        photoPickerButton.setTitle("btn", for: .normal)
     }
     
 }
