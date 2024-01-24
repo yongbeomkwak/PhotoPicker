@@ -11,8 +11,9 @@ import Combine
 class HomeViewController: UIViewController {
 
     
-    private let viewModel: HomeViewModel!
-    fileprivate lazy var input = HomeViewModel.In
+    private let viewModel : HomeViewModel!
+    fileprivate var input : HomeViewModel.Input!
+    fileprivate var output: HomeViewModel.Output!
     
     private var subscription = Set<AnyCancellable>()
     
@@ -48,6 +49,7 @@ class HomeViewController: UIViewController {
         configureCommonUI()
         addSubview()
         setLayout()
+        bindInput()
     }
 
 
@@ -70,8 +72,22 @@ extension HomeViewController {
         
     }
     
-    func bindEvent() {
+    func bindInput() {
+        input = HomeViewModel.Input(tapNavigateButton: photoPickerButton.tapPublisher)
         
+        bindOutput(input: input)
+    }
+    
+    func bindOutput(input: HomeViewModel.Input) {
+        output = viewModel.transform(input: input)
+        
+        
+        output.navigateToPhotoPicker.sink(receiveValue: {
+            
+            DEBUG_LOG("HELLO")
+            
+        })
+        .store(in: &subscription)
     }
     
 }

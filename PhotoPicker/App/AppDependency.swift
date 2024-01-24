@@ -16,7 +16,7 @@ extension AppDependency {
     static func generate() -> AppDependency {
         
         
-        let component = HomeFeatureComponent()
+        let component : HomeFeatureComponent  = HomeFeatureComponent()
         
         let factory = component.homeFactory
         

@@ -6,7 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 extension UIButton {
-    
+    var tapPublisher: AnyPublisher<Void,Never> {
+        
+        controlPublisher(for: .touchUpInside)
+            .compactMap{_ in ()}
+            .eraseToAnyPublisher()
+
+    }
 }
