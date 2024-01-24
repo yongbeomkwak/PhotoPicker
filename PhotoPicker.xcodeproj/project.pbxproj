@@ -26,17 +26,11 @@
 		B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737D92B60EDDF0089267C /* HomeFactoryImpl.swift */; };
 		B05737DE2B60F1D50089267C /* UIControl+publisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737DD2B60F1D50089267C /* UIControl+publisher.swift */; };
 		B05737E02B60F74D0089267C /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737DF2B60F74D0089267C /* UIButton.swift */; };
+		B05737EC2B61132D0089267C /* PhotoPickerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737EB2B61132D0089267C /* PhotoPickerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		B05737992B5FAB210089267C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B057377A2B5FAB1F0089267C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B05737812B5FAB1F0089267C;
-			remoteInfo = PhotoPicker;
-		};
-		B05737A32B5FAB210089267C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B057377A2B5FAB1F0089267C /* Project object */;
 			proxyType = 1;
@@ -55,7 +49,6 @@
 		B05737932B5FAB200089267C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05737982B5FAB210089267C /* PhotoPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B057379C2B5FAB210089267C /* PhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerTests.swift; sourceTree = "<group>"; };
-		B05737A22B5FAB210089267C /* PhotoPickerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPickerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05737B92B5FB0480089267C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B05737BF2B5FEAC80089267C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -69,6 +62,7 @@
 		B05737D92B60EDDF0089267C /* HomeFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactoryImpl.swift; sourceTree = "<group>"; };
 		B05737DD2B60F1D50089267C /* UIControl+publisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIControl+publisher.swift"; sourceTree = "<group>"; };
 		B05737DF2B60F74D0089267C /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		B05737EB2B61132D0089267C /* PhotoPickerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,13 +74,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B05737952B5FAB210089267C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B057379F2B5FAB210089267C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -110,7 +97,6 @@
 			children = (
 				B05737822B5FAB1F0089267C /* PhotoPicker.app */,
 				B05737982B5FAB210089267C /* PhotoPickerTests.xctest */,
-				B05737A22B5FAB210089267C /* PhotoPickerUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -212,6 +198,7 @@
 		B05737CC2B60E8C20089267C /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				B05737E92B61123F0089267C /* PhotoPickerFeature */,
 				B05737B52B5FAD370089267C /* HomeFeature */,
 			);
 			path = Feature;
@@ -269,6 +256,38 @@
 			path = Combine;
 			sourceTree = "<group>";
 		};
+		B05737E92B61123F0089267C /* PhotoPickerFeature */ = {
+			isa = PBXGroup;
+			children = (
+				B05737ED2B6113640089267C /* Sources */,
+				B05737EA2B6113040089267C /* Interface */,
+			);
+			path = PhotoPickerFeature;
+			sourceTree = "<group>";
+		};
+		B05737EA2B6113040089267C /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B05737EB2B61132D0089267C /* PhotoPickerFactory.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		B05737ED2B6113640089267C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B05737EE2B6113740089267C /* DI */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B05737EE2B6113740089267C /* DI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,24 +326,6 @@
 			productReference = B05737982B5FAB210089267C /* PhotoPickerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B05737A12B5FAB210089267C /* PhotoPickerUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B05737B22B5FAB210089267C /* Build configuration list for PBXNativeTarget "PhotoPickerUITests" */;
-			buildPhases = (
-				B057379E2B5FAB210089267C /* Sources */,
-				B057379F2B5FAB210089267C /* Frameworks */,
-				B05737A02B5FAB210089267C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B05737A42B5FAB210089267C /* PBXTargetDependency */,
-			);
-			name = PhotoPickerUITests;
-			productName = PhotoPickerUITests;
-			productReference = B05737A22B5FAB210089267C /* PhotoPickerUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -339,10 +340,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					B05737972B5FAB210089267C = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = B05737812B5FAB1F0089267C;
-					};
-					B05737A12B5FAB210089267C = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = B05737812B5FAB1F0089267C;
 					};
@@ -363,7 +360,6 @@
 			targets = (
 				B05737812B5FAB1F0089267C /* PhotoPicker */,
 				B05737972B5FAB210089267C /* PhotoPickerTests */,
-				B05737A12B5FAB210089267C /* PhotoPickerUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -385,13 +381,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B05737A02B5FAB210089267C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -400,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B05737CF2B60EABA0089267C /* AppDependency.swift in Sources */,
+				B05737EC2B61132D0089267C /* PhotoPickerFactory.swift in Sources */,
 				B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */,
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
 				B05737E02B60F74D0089267C /* UIButton.swift in Sources */,
@@ -426,13 +416,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B057379E2B5FAB210089267C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -440,11 +423,6 @@
 			isa = PBXTargetDependency;
 			target = B05737812B5FAB1F0089267C /* PhotoPicker */;
 			targetProxy = B05737992B5FAB210089267C /* PBXContainerItemProxy */;
-		};
-		B05737A42B5FAB210089267C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B05737812B5FAB1F0089267C /* PhotoPicker */;
-			targetProxy = B05737A32B5FAB210089267C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -673,42 +651,6 @@
 			};
 			name = Release;
 		};
-		B05737B32B5FAB210089267C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 28NL63HBTJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoPickerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhotoPicker;
-			};
-			name = Debug;
-		};
-		B05737B42B5FAB210089267C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 28NL63HBTJ;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoPickerUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = PhotoPicker;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -735,15 +677,6 @@
 			buildConfigurations = (
 				B05737B02B5FAB210089267C /* Debug */,
 				B05737B12B5FAB210089267C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B05737B22B5FAB210089267C /* Build configuration list for PBXNativeTarget "PhotoPickerUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B05737B32B5FAB210089267C /* Debug */,
-				B05737B42B5FAB210089267C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

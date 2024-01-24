@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Combine
 @testable import PhotoPicker
 
 final class PhotoPickerTests: XCTestCase {
@@ -20,8 +21,14 @@ final class PhotoPickerTests: XCTestCase {
      
     */
     
+    var homeViewModel: HomeViewModel!
+    var subscription: Set<AnyCancellable>!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        
+        homeViewModel = HomeViewModel()
+        subscription = .init()
     }
 
     override func tearDownWithError() throws {
@@ -29,21 +36,38 @@ final class PhotoPickerTests: XCTestCase {
         // 각각의 유닛 테스트가 끝난 후 테스트 값을 처리합니다.
         // 초기 상태로 복원할 때 사용됩니다. (파일 닫기, 연결, 새로 만든 항목 제거, 트랜잭션 콜백 호출 등)
         
+        homeViewModel = nil
+        subscription = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
+    /*
+     
+     1. 앞에 test를 붙이고 테스트를 할 클래스 이름을 적어준다.
+      
+     2. 테스트를 할 상황에 대해 설명한다.
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+     3. 예상되는 결과를 적어준다.
+     
+     */
+    
+    func homeViewModel_NavigateButtonTap_ShouldReturnOne() {
+        
+        let tapNavigate = PassthroughSubject<Void,Never>()
+        
+        let input = HomeViewModel.Input(tapNavigateButton: tapNavigate.eraseToAnyPublisher())
+        
+        let output = homeViewModel.transform(input: input)
+        
+        
+        var count: Int = 0
+        
+        output.navigateToPhotoPicker
+            .sink(receiveValue: {  count += 1 })
+            .store(in: &subscription)
+        
+        tapNavigate.send(())
+        
+        XCTAssertEqual(count, 1)
     }
 
 }
