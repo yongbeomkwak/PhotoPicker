@@ -34,6 +34,7 @@
 		B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737FE2B61240F0089267C /* NavigationBarView.swift */; };
 		B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738012B612DE30089267C /* DaangnImageSystem.swift */; };
 		B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */; };
+		B05738072B614B4C0089267C /* EditButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738062B614B4C0089267C /* EditButtonContainerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		B05737FE2B61240F0089267C /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		B05738012B612DE30089267C /* DaangnImageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnImageSystem.swift; sourceTree = "<group>"; };
 		B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
+		B05738062B614B4C0089267C /* EditButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 		B05737ED2B6113640089267C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B05738052B614B230089267C /* View */,
 				B05737F62B61170F0089267C /* VM */,
 				B05737F32B6114AC0089267C /* VC */,
 				B05737EE2B6113740089267C /* DI */,
@@ -337,6 +340,14 @@
 			isa = PBXGroup;
 			children = (
 				B05737FE2B61240F0089267C /* NavigationBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B05738052B614B230089267C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B05738062B614B4C0089267C /* EditButtonContainerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -443,6 +454,7 @@
 			files = (
 				B05737CF2B60EABA0089267C /* AppDependency.swift in Sources */,
 				B05737EC2B61132D0089267C /* PhotoPickerFactory.swift in Sources */,
+				B05738072B614B4C0089267C /* EditButtonContainerView.swift in Sources */,
 				B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */,
 				B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */,
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,

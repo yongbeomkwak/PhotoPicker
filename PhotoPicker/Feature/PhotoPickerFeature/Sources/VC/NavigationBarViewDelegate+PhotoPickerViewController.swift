@@ -16,6 +16,7 @@ extension PhotoPickerViewController : NavigationBarViewDelegate {
     
     func tapRightButton() {
         DEBUG_LOG("HELLO")
+        
     }
         
     
