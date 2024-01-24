@@ -16,6 +16,10 @@
 		B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737B92B5FB0480089267C /* UIView+Extension.swift */; };
 		B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */; };
 		B05737C02B5FEAC80089267C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737BF2B5FEAC80089267C /* Utils.swift */; };
+		B05737C32B609DC90089267C /* DaangnColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C22B609DC90089267C /* DaangnColorSystem.swift */; };
+		B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C42B609FDF0089267C /* UIButton+Extension.swift */; };
+		B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C62B60A16E0089267C /* HomeViewModel.swift */; };
+		B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C92B60A19F0089267C /* ViewModelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		B05737B92B5FB0480089267C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B05737BF2B5FEAC80089267C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		B05737C22B609DC90089267C /* DaangnColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnColorSystem.swift; sourceTree = "<group>"; };
+		B05737C42B609FDF0089267C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		B05737C62B60A16E0089267C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B05737C92B60A19F0089267C /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
+				B05737C62B60A16E0089267C /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -136,6 +145,8 @@
 		B05737B72B5FAFA00089267C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B05737C82B60A1800089267C /* Protocols */,
+				B05737C12B609D8B0089267C /* ResourceSystem */,
 				B05737BE2B5FEABA0089267C /* Utils */,
 				B05737B82B5FB0310089267C /* Extensions */,
 			);
@@ -147,6 +158,7 @@
 			children = (
 				B05737B92B5FB0480089267C /* UIView+Extension.swift */,
 				B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */,
+				B05737C42B609FDF0089267C /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -157,6 +169,22 @@
 				B05737BF2B5FEAC80089267C /* Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		B05737C12B609D8B0089267C /* ResourceSystem */ = {
+			isa = PBXGroup;
+			children = (
+				B05737C22B609DC90089267C /* DaangnColorSystem.swift */,
+			);
+			path = ResourceSystem;
+			sourceTree = "<group>";
+		};
+		B05737C82B60A1800089267C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				B05737C92B60A19F0089267C /* ViewModelType.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +318,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
+				B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */,
 				B05737862B5FAB1F0089267C /* AppDelegate.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
+				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
+				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,
+				B05737C32B609DC90089267C /* DaangnColorSystem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
