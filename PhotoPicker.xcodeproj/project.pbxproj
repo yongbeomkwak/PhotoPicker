@@ -20,6 +20,10 @@
 		B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C42B609FDF0089267C /* UIButton+Extension.swift */; };
 		B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C62B60A16E0089267C /* HomeViewModel.swift */; };
 		B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737C92B60A19F0089267C /* ViewModelType.swift */; };
+		B05737CF2B60EABA0089267C /* AppDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737CE2B60EABA0089267C /* AppDependency.swift */; };
+		B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737D12B60EC5A0089267C /* HomeFactory.swift */; };
+		B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737D72B60ED940089267C /* HomeFeatureComponent.swift */; };
+		B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737D92B60EDDF0089267C /* HomeFactoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +61,10 @@
 		B05737C42B609FDF0089267C /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		B05737C62B60A16E0089267C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B05737C92B60A19F0089267C /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		B05737CE2B60EABA0089267C /* AppDependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependency.swift; sourceTree = "<group>"; };
+		B05737D12B60EC5A0089267C /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
+		B05737D72B60ED940089267C /* HomeFeatureComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeatureComponent.swift; sourceTree = "<group>"; };
+		B05737D92B60EDDF0089267C /* HomeFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +114,9 @@
 		B05737842B5FAB1F0089267C /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
-				B05737B72B5FAFA00089267C /* Utility */,
+				B05737CC2B60E8C20089267C /* Feature */,
+				B05737CB2B60E89E0089267C /* Shared */,
 				B05737B62B5FADAB0089267C /* App */,
-				B05737B52B5FAD370089267C /* Home */,
 				B057378E2B5FAB200089267C /* Assets.xcassets */,
 				B05737902B5FAB200089267C /* LaunchScreen.storyboard */,
 				B05737932B5FAB200089267C /* Info.plist */,
@@ -124,13 +132,13 @@
 			path = PhotoPickerTests;
 			sourceTree = "<group>";
 		};
-		B05737B52B5FAD370089267C /* Home */ = {
+		B05737B52B5FAD370089267C /* HomeFeature */ = {
 			isa = PBXGroup;
 			children = (
-				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
-				B05737C62B60A16E0089267C /* HomeViewModel.swift */,
+				B05737D32B60ED510089267C /* Sources */,
+				B05737D02B60EC160089267C /* Interface */,
 			);
-			path = Home;
+			path = HomeFeature;
 			sourceTree = "<group>";
 		};
 		B05737B62B5FADAB0089267C /* App */ = {
@@ -138,6 +146,7 @@
 			children = (
 				B05737852B5FAB1F0089267C /* AppDelegate.swift */,
 				B05737872B5FAB1F0089267C /* SceneDelegate.swift */,
+				B05737CE2B60EABA0089267C /* AppDependency.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -185,6 +194,65 @@
 				B05737C92B60A19F0089267C /* ViewModelType.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		B05737CB2B60E89E0089267C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B05737B72B5FAFA00089267C /* Utility */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B05737CC2B60E8C20089267C /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				B05737B52B5FAD370089267C /* HomeFeature */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		B05737D02B60EC160089267C /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B05737D12B60EC5A0089267C /* HomeFactory.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		B05737D32B60ED510089267C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B05737D62B60ED790089267C /* DI */,
+				B05737D52B60ED710089267C /* VM */,
+				B05737D42B60ED640089267C /* VC */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B05737D42B60ED640089267C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		B05737D52B60ED710089267C /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				B05737C62B60A16E0089267C /* HomeViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		B05737D62B60ED790089267C /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				B05737D72B60ED940089267C /* HomeFeatureComponent.swift */,
+				B05737D92B60EDDF0089267C /* HomeFactoryImpl.swift */,
+			);
+			path = DI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,14 +385,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05737CF2B60EABA0089267C /* AppDependency.swift in Sources */,
+				B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */,
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
 				B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */,
 				B05737862B5FAB1F0089267C /* AppDelegate.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
+				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
+				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
 				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,
 				B05737C32B609DC90089267C /* DaangnColorSystem.swift in Sources */,
 			);
