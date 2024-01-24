@@ -7,10 +7,18 @@
 
 import Foundation
 
-final class HomeViewModel  {
+final class HomeViewModel : ViewModelType {
 
+    struct Input {
+        
+    }
     
-
+    struct Output {
+        
+    }
     
-    
+    func transform(input: Input) -> Output {
+        
+        
+    }
 }

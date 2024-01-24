@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
 
     
     private let viewModel: HomeViewModel!
+    fileprivate lazy var input = HomeViewModel.In
+    
+    private var subscription = Set<AnyCancellable>()
     
     
     var photoPickerButton: UIButton = {
@@ -43,7 +47,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureCommonUI()
         addSubview()
-        configureUI()
+        setLayout()
     }
 
 
@@ -55,9 +59,8 @@ extension HomeViewController {
         self.view.addSubviews(photoPickerButton)
     }
     
-    func configureUI() {
+    func setLayout() {
         // 버튼의 레이아웃 설정.
-        
         
         photoPickerButton.setCenterX(view: self.view)
         photoPickerButton.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 45)
@@ -67,9 +70,8 @@ extension HomeViewController {
         
     }
     
-    
-    @objc func btnClick() {
-        photoPickerButton.setTitle("btn", for: .normal)
+    func bindEvent() {
+        
     }
     
 }
