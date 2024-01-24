@@ -11,6 +11,8 @@ public extension UIColor {
     
     enum ColorSystem {
         case primary
+        case secondary
+        case bg
     }
     
     
@@ -19,6 +21,13 @@ public extension UIColor {
         switch cs {
             case .primary:
                 return UIColor(named: "PrimaryColor")!
+            
+            case .secondary:
+                return UIColor(named: "SecondaryColor")!
+            
+        case .bg:
+            return UIColor(named: "BackgroundColor")!
+            
         }
         
     }
