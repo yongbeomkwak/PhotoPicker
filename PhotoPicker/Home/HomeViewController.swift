@@ -15,12 +15,12 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         let label = UILabel()
         
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 10
+        button.backgroundColor = .setColor(.primary)
+        button.setRound(.allCorners, radius: 10)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitle("button", for: .normal)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitle(title: "사진 올리기", ofSize: 20,weight: .bold)
+        
         return button
         
     }()
@@ -48,11 +48,11 @@ extension HomeViewController {
         
         
         photoPickerButton.setCenterX(view: self.view)
+        photoPickerButton.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 45)
+        photoPickerButton.setLeft(anchor: self.view.safeAreaLayoutGuide.rightAnchor, constant: 20)
+        photoPickerButton.setRight(anchor: self.view.safeAreaLayoutGuide.rightAnchor, constant: 20)
+        photoPickerButton.setHeight(48)
         
-        photoPickerButton.setBottom(anchor: self.view.bottomAnchor, constant: -30)
-    
-        photoPickerButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        photoPickerButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
     
     

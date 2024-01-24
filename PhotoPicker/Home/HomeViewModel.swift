@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+final class HomeViewModel : ViewModelType {
+    typealias Input = <#type#>
+    
+    typealias Output = <#type#>
+    
+    
+}
