@@ -12,22 +12,23 @@ class HomeViewController: UIViewController {
 
     
     private let viewModel : HomeViewModel!
+    private let photoPickerComponent: PhotoPickerComponent!
     fileprivate var input : HomeViewModel.Input!
     fileprivate var output: HomeViewModel.Output!
     
     private var subscription = Set<AnyCancellable>()
     
     
+    
     var photoPickerButton: UIButton = {
         
         let button = UIButton()
-        let label = UILabel()
         
         button.backgroundColor = .setColor(.primary)
         button.setRound(.allCorners, radius: 10)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.setTitle(title: "사진 올리기", ofSize: 20,weight: .bold)
+        button.setTitle(title: "사진 올리기", ofSize: 20,weight: .bold,textColor: .white)
         
         return button
         
@@ -35,8 +36,9 @@ class HomeViewController: UIViewController {
     
     
     
-    init(viewModel: HomeViewModel) {
+    init(viewModel: HomeViewModel, photoPickerComponent: PhotoPickerComponent) {
         self.viewModel = viewModel
+        self.photoPickerComponent = photoPickerComponent
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -82,9 +84,12 @@ extension HomeViewController {
         output = viewModel.transform(input: input)
         
         
-        output.navigateToPhotoPicker.sink(receiveValue: {
+        output.navigateToPhotoPicker
+            .sink(receiveValue: { [weak self ] in
             
-            DEBUG_LOG("HELLO")
+            guard let self else {return}
+            
+            self.navigationController?.pushViewController(photoPickerComponent.photoPickerFactory.makeViewController(), animated: true)
             
         })
         .store(in: &subscription)

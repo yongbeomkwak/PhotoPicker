@@ -10,6 +10,10 @@ import UIKit
 
 public extension UIViewController {
     
+    var wrapNavigationController: UINavigationController {
+        return UINavigationController(rootViewController: self)
+    }
+    
     func configureCommonUI() {
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -21,7 +25,7 @@ public extension UIViewController {
             }
         }
         
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .setColor(.bg)
         
     }
     

@@ -12,8 +12,9 @@ final class HomeFactoryImpl : HomeFactory {
     
     func makeViewController() -> UIViewController {
             let viewModel = HomeViewModel()
+            let photoPickerComponent = PhotoPickerComponent()
         
-        return HomeViewController(viewModel: viewModel)
+        return HomeViewController(viewModel: viewModel, photoPickerComponent: photoPickerComponent)
     }
     
 }

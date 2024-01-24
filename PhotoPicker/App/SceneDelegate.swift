@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let appDependency = AppDependency.generate()
         
-            window?.rootViewController = appDependency.rootViewController
+        window?.rootViewController = appDependency.rootViewController.wrapNavigationController
             window?.makeKeyAndVisible()
     }
 

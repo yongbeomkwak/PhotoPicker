@@ -31,6 +31,9 @@
 		B05737F22B61145A0089267C /* PhotoPickerFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737F12B61145A0089267C /* PhotoPickerFactoryImpl.swift */; };
 		B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737F42B6114C50089267C /* PhotoPickerViewController.swift */; };
 		B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737F72B6117F20089267C /* PhotoPickerViewModel.swift */; };
+		B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737FE2B61240F0089267C /* NavigationBarView.swift */; };
+		B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738012B612DE30089267C /* DaangnImageSystem.swift */; };
+		B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +74,9 @@
 		B05737F12B61145A0089267C /* PhotoPickerFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerFactoryImpl.swift; sourceTree = "<group>"; };
 		B05737F42B6114C50089267C /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		B05737F72B6117F20089267C /* PhotoPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModel.swift; sourceTree = "<group>"; };
+		B05737FE2B61240F0089267C /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		B05738012B612DE30089267C /* DaangnImageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnImageSystem.swift; sourceTree = "<group>"; };
+		B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,7 @@
 		B05737842B5FAB1F0089267C /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				B05737FD2B6123E40089267C /* UserInterface */,
 				B05737CC2B60E8C20089267C /* Feature */,
 				B05737CB2B60E89E0089267C /* Shared */,
 				B05737B62B5FADAB0089267C /* App */,
@@ -153,7 +160,6 @@
 			isa = PBXGroup;
 			children = (
 				B05737C82B60A1800089267C /* Protocols */,
-				B05737C12B609D8B0089267C /* ResourceSystem */,
 				B05737BE2B5FEABA0089267C /* Utils */,
 				B05737B82B5FB0310089267C /* Extensions */,
 			);
@@ -182,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B05737C22B609DC90089267C /* DaangnColorSystem.swift */,
+				B05738012B612DE30089267C /* DaangnImageSystem.swift */,
 			);
 			path = ResourceSystem;
 			sourceTree = "<group>";
@@ -304,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
+				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -314,6 +322,23 @@
 				B05737F72B6117F20089267C /* PhotoPickerViewModel.swift */,
 			);
 			path = VM;
+			sourceTree = "<group>";
+		};
+		B05737FD2B6123E40089267C /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+				B05738002B612A280089267C /* View */,
+				B05737C12B609D8B0089267C /* ResourceSystem */,
+			);
+			path = UserInterface;
+			sourceTree = "<group>";
+		};
+		B05738002B612A280089267C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B05737FE2B61240F0089267C /* NavigationBarView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,9 +443,11 @@
 			files = (
 				B05737CF2B60EABA0089267C /* AppDependency.swift in Sources */,
 				B05737EC2B61132D0089267C /* PhotoPickerFactory.swift in Sources */,
+				B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */,
 				B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */,
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
 				B05737E02B60F74D0089267C /* UIButton.swift in Sources */,
+				B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */,
 				B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */,
 				B05737DE2B60F1D50089267C /* UIControl+publisher.swift in Sources */,
 				B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */,
@@ -431,6 +458,7 @@
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
+				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,

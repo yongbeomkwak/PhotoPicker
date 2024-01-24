@@ -15,6 +15,13 @@ class PhotoPickerViewController: UIViewController {
     fileprivate var output: PhotoPickerViewModel.Output!
     
     
+    private var navigationBarView: NavigationBarView = {
+        
+        let view = NavigationBarView(frame: .zero, title: "최근 항목", mode: .photoPicker)
+        
+        return view
+    }()
+    
     init(viewModel: PhotoPickerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -27,10 +34,48 @@ class PhotoPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCommonUI()
+        addSubviews()
+        setLayout()
+        bindInput()
+        
 
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
+}
 
- 
+extension PhotoPickerViewController {
+    
+    func addSubviews() {
+        self.view.addSubviews(navigationBarView)
+    }
+    
+    func setLayout() {
+        
+        navigationBarView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
+        navigationBarView.setRight(anchor: self.view.rightAnchor, constant: .zero)
+        navigationBarView.setTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        navigationBarView.setHeight(48)
+        navigationBarView.deleagte = self
+        
+        
+    }
+    
+    func bindInput() {
+        input = PhotoPickerViewModel.Input()
+        
+        bindOutput(input: input)
+    }
+    
+    func bindOutput(input: PhotoPickerViewModel.Input) {
+        
+        output = viewModel.transform(input: input)
+        
+    }
 }
