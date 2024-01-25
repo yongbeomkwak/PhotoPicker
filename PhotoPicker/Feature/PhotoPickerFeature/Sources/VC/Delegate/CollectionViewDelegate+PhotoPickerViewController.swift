@@ -23,7 +23,7 @@ extension PhotoPickerViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.prepare(image: nil)
+        cell.prepare((num: 10, isSelected: false, image: UIImage(named: "H")))
         
         return cell
         
