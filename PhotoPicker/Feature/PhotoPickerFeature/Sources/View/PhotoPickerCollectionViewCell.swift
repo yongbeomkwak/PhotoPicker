@@ -101,13 +101,16 @@ extension PhotoPickerCollectionViewCell {
         
     }
     
-    public func prepare(_ model:(num:Int, isSelected: Bool ,image: UIImage?)) {
+    public func prepare(_ model: ImageEntity) {
         
+        DEBUG_LOG(model.image)
     
-        if model.image == nil { // 카메라 버튼
+        if model.id == -1 { // 카메라 버튼
             cameraImageView.isHidden = false
             self.contentView.backgroundColor = colorFromRGB("CFD3D9")
+            imageView.layer.borderColor = UIColor.clear.cgColor
             countLabel.isHidden = true
+            overlayLayer.isHidden = true
             return
         } else {
             imageView.image = model.image
@@ -123,18 +126,18 @@ extension PhotoPickerCollectionViewCell {
     }
     
     
-    func selected(_ model: (num:Int, isSelected: Bool ,image: UIImage?)) {
+    func selected(_ model: ImageEntity) {
         
         overlayLayer.isHidden = false
         imageView.layer.borderColor = UIColor.setColor(.primary).cgColor
         countLabel.layer.borderColor = UIColor.setColor(.primary).cgColor
         countLabel.backgroundColor = .setColor(.primary)
-        countLabel.text = "\(model.num)"
+        countLabel.text = "\(model.id)"
         
         
     }
     
-    func deSelected(_ mode: (num:Int, isSelected: Bool ,image: UIImage?)) {
+    func deSelected(_ mode: ImageEntity) {
         
         overlayLayer.isHidden = true
         imageView.layer.borderColor = UIColor.clear.cgColor

@@ -39,6 +39,10 @@
 		B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */; };
 		B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */; };
 		B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */; };
+		B05738142B625D930089267C /* ImageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738132B625D930089267C /* ImageEntity.swift */; };
+		B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738152B62614F0089267C /* RequestPermissionable.swift */; };
+		B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */; };
+		B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738192B6292860089267C /* PHAsset+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,10 @@
 		B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
+		B05738132B625D930089267C /* ImageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEntity.swift; sourceTree = "<group>"; };
+		B05738152B62614F0089267C /* RequestPermissionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionable.swift; sourceTree = "<group>"; };
+		B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestPermissionable+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
+		B05738192B6292860089267C /* PHAsset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +191,7 @@
 				B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */,
 				B05737C42B609FDF0089267C /* UIButton+Extension.swift */,
 				B05738082B615D670089267C /* UIImage+Extension.swift */,
+				B05738192B6292860089267C /* PHAsset+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -208,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				B05737C92B60A19F0089267C /* ViewModelType.swift */,
+				B05738152B62614F0089267C /* RequestPermissionable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -302,6 +312,7 @@
 		B05737ED2B6113640089267C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B05738122B625C2C0089267C /* Model */,
 				B05738052B614B230089267C /* View */,
 				B05737F62B61170F0089267C /* VM */,
 				B05737F32B6114AC0089267C /* VC */,
@@ -322,7 +333,7 @@
 		B05737F32B6114AC0089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B057380F2B623BC00089267C /* Delegate */,
+				B057380F2B623BC00089267C /* Protocolimpl */,
 				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
 			);
 			path = VC;
@@ -371,13 +382,22 @@
 			path = FlowLayout;
 			sourceTree = "<group>";
 		};
-		B057380F2B623BC00089267C /* Delegate */ = {
+		B057380F2B623BC00089267C /* Protocolimpl */ = {
 			isa = PBXGroup;
 			children = (
 				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
 				B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */,
+				B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */,
 			);
-			path = Delegate;
+			path = Protocolimpl;
+			sourceTree = "<group>";
+		};
+		B05738122B625C2C0089267C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B05738132B625D930089267C /* ImageEntity.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -488,7 +508,9 @@
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
 				B05737E02B60F74D0089267C /* UIButton.swift in Sources */,
 				B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */,
+				B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */,
 				B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */,
+				B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */,
 				B05737DE2B60F1D50089267C /* UIControl+publisher.swift in Sources */,
 				B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */,
 				B05737862B5FAB1F0089267C /* AppDelegate.swift in Sources */,
@@ -498,6 +520,7 @@
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
+				B05738142B625D930089267C /* ImageEntity.swift in Sources */,
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */,
@@ -507,6 +530,7 @@
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
 				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
+				B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */,
 				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,
 				B05737C32B609DC90089267C /* DaangnColorSystem.swift in Sources */,
 			);
@@ -594,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -651,7 +675,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -666,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28NL63HBTJ;
@@ -682,6 +707,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -693,6 +719,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 28NL63HBTJ;
@@ -709,6 +736,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.PhotoPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

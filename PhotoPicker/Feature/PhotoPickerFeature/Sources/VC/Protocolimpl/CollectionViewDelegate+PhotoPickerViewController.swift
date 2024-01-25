@@ -10,11 +10,23 @@ import UIKit
 
 extension PhotoPickerViewController : UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == .zero {
+            requestCameraPermission()
+            return 
+        }
+        
+        DEBUG_LOG(output.dataSource.value[indexPath.row].id)
+        
+    }
+    
 }
 
 extension PhotoPickerViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        
+        return output.dataSource.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -23,7 +35,7 @@ extension PhotoPickerViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.prepare((num: 10, isSelected: false, image: UIImage(named: "H")))
+        cell.prepare(output.dataSource.value[indexPath.row])
         
         return cell
         
@@ -46,7 +58,6 @@ extension PhotoPickerViewController : UICollectionViewDelegateFlowLayout {
         
         let widthOfSpacing = CGFloat(flowLayout.numberOfColumns - 1) * flowLayout.cellSpacing
         
-        DEBUG_LOG("withOfcell \(widthOfCells) \(widthOfSpacing) \(flowLayout.cellSpacing)")
         
         let width = (widthOfCells - widthOfSpacing) / CGFloat(flowLayout.numberOfColumns)
 

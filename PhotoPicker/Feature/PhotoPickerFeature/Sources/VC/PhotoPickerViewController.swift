@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class PhotoPickerViewController: UIViewController {
 
     
     private let viewModel : PhotoPickerViewModel!
-    fileprivate var input : PhotoPickerViewModel.Input!
-    fileprivate var output: PhotoPickerViewModel.Output!
-    
+    public var input : PhotoPickerViewModel.Input!
+    public var output: PhotoPickerViewModel.Output!
+    var subscription: Set<AnyCancellable> = .init()
     
     private var navigationBarView: NavigationBarView = {
         
@@ -69,10 +70,12 @@ class PhotoPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         configureCommonUI()
         addSubviews()
         setLayout()
         bindInput()
+        requestPhotoLibraryPermission()
         
 
         // Do any additional setup after loading the view.
@@ -113,10 +116,7 @@ extension PhotoPickerViewController {
        
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        
- 
-        
+
     }
     
     func bindInput() {
@@ -129,5 +129,15 @@ extension PhotoPickerViewController {
         
         output = viewModel.transform(input: input)
         
+        
+        output.dataSource
+            .sink { [weak self] _ in
+            guard let self else {return}
+            
+            self.collectionView.reloadData()
+        }
+      
     }
 }
+
+
