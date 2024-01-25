@@ -70,7 +70,7 @@ public extension UIView {
     }
 
     func setBottom(anchor: NSLayoutYAxisAnchor, constant: CGFloat) {
-        self.topAnchor.constraint(equalTo: anchor, constant: -constant).isActive = true
+        self.bottomAnchor.constraint(equalTo: anchor, constant: -constant).isActive = true
     }
 
     func setRight(anchor: NSLayoutXAxisAnchor, constant: CGFloat) {
