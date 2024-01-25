@@ -27,6 +27,17 @@ class BottomEditButtonContainerView: UIView {
         return button
     }()
     
+    var borderView: UIView = {
+       
+        let view = UIView()
+        
+        view.backgroundColor = .lightGray.withAlphaComponent(0.5)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubviews()
@@ -48,14 +59,17 @@ class BottomEditButtonContainerView: UIView {
 extension BottomEditButtonContainerView {
     
     func addSubviews() {
-        self.addSubviews(editButton)
+        self.addSubviews(editButton,borderView)
     }
     
     func setLayout() {
         
-        self.layer.addBorder(edge: .top, color: .gray, thickness: 1)
+        borderView.setLeft(anchor: self.leftAnchor, constant: .zero)
+        borderView.setRight(anchor: self.rightAnchor, constant: .zero)
+        borderView.setHeight(1)
+        borderView.setTop(anchor: self.topAnchor, constant: .zero)
         
-        editButton.setTop(anchor: self.topAnchor, constant: 10)
+        editButton.setTop(anchor: self.borderView.bottomAnchor, constant: 9)
         editButton.setLeft(anchor: self.leftAnchor, constant:20)
         editButton.setHeight(30)
         

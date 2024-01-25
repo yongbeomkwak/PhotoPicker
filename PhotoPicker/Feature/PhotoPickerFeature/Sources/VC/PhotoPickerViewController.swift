@@ -79,8 +79,6 @@ extension PhotoPickerViewController {
         bottomEditButtonContainerView.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 50)
         bottomEditButtonContainerView.setHeight(50)
         
-        
-        
     }
     
     func bindInput() {
