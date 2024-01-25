@@ -35,6 +35,7 @@
 		B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738012B612DE30089267C /* DaangnImageSystem.swift */; };
 		B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */; };
 		B05738072B614B4C0089267C /* EditButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738062B614B4C0089267C /* EditButtonContainerView.swift */; };
+		B05738092B615D670089267C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738082B615D670089267C /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B05738012B612DE30089267C /* DaangnImageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnImageSystem.swift; sourceTree = "<group>"; };
 		B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 		B05738062B614B4C0089267C /* EditButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonContainerView.swift; sourceTree = "<group>"; };
+		B05738082B615D670089267C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 				B05737B92B5FB0480089267C /* UIView+Extension.swift */,
 				B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */,
 				B05737C42B609FDF0089267C /* UIButton+Extension.swift */,
+				B05738082B615D670089267C /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				B05737C72B60A16E0089267C /* HomeViewModel.swift in Sources */,
 				B05737862B5FAB1F0089267C /* AppDelegate.swift in Sources */,
 				B05737F22B61145A0089267C /* PhotoPickerFactoryImpl.swift in Sources */,
+				B05738092B615D670089267C /* UIImage+Extension.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,

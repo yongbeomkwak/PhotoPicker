@@ -18,8 +18,18 @@ class PhotoPickerViewController: UIViewController {
     private var navigationBarView: NavigationBarView = {
         
         let view = NavigationBarView(frame: .zero, title: "최근 항목", mode: .photoPicker)
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
+    }()
+    
+    private var bottomEditButtonContainerView : BottomEditButtonContainerView =  {
+        
+        let view = BottomEditButtonContainerView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+        
     }()
     
     init(viewModel: PhotoPickerViewModel) {
@@ -53,7 +63,7 @@ class PhotoPickerViewController: UIViewController {
 extension PhotoPickerViewController {
     
     func addSubviews() {
-        self.view.addSubviews(navigationBarView)
+        self.view.addSubviews(navigationBarView,bottomEditButtonContainerView)
     }
     
     func setLayout() {
@@ -63,6 +73,12 @@ extension PhotoPickerViewController {
         navigationBarView.setTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
         navigationBarView.setHeight(48)
         navigationBarView.deleagte = self
+        
+        bottomEditButtonContainerView.setLeft(anchor: self.view.leftAnchor, constant:  .zero)
+        bottomEditButtonContainerView.setRight(anchor: self.view.rightAnchor, constant: .zero)
+        bottomEditButtonContainerView.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 50)
+        bottomEditButtonContainerView.setHeight(50)
+        
         
         
     }
