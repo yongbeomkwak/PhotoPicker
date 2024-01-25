@@ -36,6 +36,9 @@
 		B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */; };
 		B05738072B614B4C0089267C /* EditButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738062B614B4C0089267C /* EditButtonContainerView.swift */; };
 		B05738092B615D670089267C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738082B615D670089267C /* UIImage+Extension.swift */; };
+		B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */; };
+		B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */; };
+		B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +84,9 @@
 		B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 		B05738062B614B4C0089267C /* EditButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonContainerView.swift; sourceTree = "<group>"; };
 		B05738082B615D670089267C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,8 +322,8 @@
 		B05737F32B6114AC0089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				B057380F2B623BC00089267C /* Delegate */,
 				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
-				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -333,6 +339,7 @@
 		B05737FD2B6123E40089267C /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
+				B057380A2B620DF10089267C /* FlowLayout */,
 				B05738002B612A280089267C /* View */,
 				B05737C12B609D8B0089267C /* ResourceSystem */,
 			);
@@ -351,8 +358,26 @@
 			isa = PBXGroup;
 			children = (
 				B05738062B614B4C0089267C /* EditButtonContainerView.swift */,
+				B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B057380A2B620DF10089267C /* FlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */,
+			);
+			path = FlowLayout;
+			sourceTree = "<group>";
+		};
+		B057380F2B623BC00089267C /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
+				B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -475,10 +500,13 @@
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
+				B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
+				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
+				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
 				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,
 				B05737C32B609DC90089267C /* DaangnColorSystem.swift in Sources */,
 			);

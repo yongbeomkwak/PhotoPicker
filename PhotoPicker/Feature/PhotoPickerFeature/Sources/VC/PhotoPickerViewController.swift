@@ -32,6 +32,31 @@ class PhotoPickerViewController: UIViewController {
         
     }()
     
+    let gridFlowLayout: GridCollectionViewFlowLayout = {
+        let layout = GridCollectionViewFlowLayout()
+        layout.cellSpacing = 3
+        layout.numberOfColumns = 3
+        return layout
+        
+    }()
+    
+    lazy var collectionView : UICollectionView =  {
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: self.gridFlowLayout)
+        
+        view.isScrollEnabled = true
+        view.showsHorizontalScrollIndicator = false
+        view.showsVerticalScrollIndicator = true
+        view.contentInset = .zero
+        view.backgroundColor = .setColor(.bg)
+        view.clipsToBounds = true
+        view.register(PhotoPickerCollectionViewCell.self, forCellWithReuseIdentifier: PhotoPickerCollectionViewCell.id)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+        
+    } ()
+    
     init(viewModel: PhotoPickerViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -63,7 +88,7 @@ class PhotoPickerViewController: UIViewController {
 extension PhotoPickerViewController {
     
     func addSubviews() {
-        self.view.addSubviews(navigationBarView,bottomEditButtonContainerView)
+        self.view.addSubviews(navigationBarView,bottomEditButtonContainerView,collectionView)
     }
     
     func setLayout() {
@@ -76,8 +101,21 @@ extension PhotoPickerViewController {
         
         bottomEditButtonContainerView.setLeft(anchor: self.view.leftAnchor, constant:  .zero)
         bottomEditButtonContainerView.setRight(anchor: self.view.rightAnchor, constant: .zero)
-        bottomEditButtonContainerView.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 50)
+        bottomEditButtonContainerView.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
         bottomEditButtonContainerView.setHeight(50)
+        
+        collectionView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
+        collectionView.setRight(anchor: self.view.rightAnchor, constant: .zero)
+        collectionView.setTop(anchor: self.navigationBarView.bottomAnchor, constant: .zero)
+        collectionView.setBottom(anchor: self.bottomEditButtonContainerView.topAnchor, constant: .zero)
+        
+
+       
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        
+ 
         
     }
     

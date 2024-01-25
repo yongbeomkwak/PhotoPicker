@@ -114,6 +114,7 @@ class NavigationBarView: UIView {
         addSubviews()
         setLayout()
         bindEvent()
+        changeTitle(title)
         
     }
     
