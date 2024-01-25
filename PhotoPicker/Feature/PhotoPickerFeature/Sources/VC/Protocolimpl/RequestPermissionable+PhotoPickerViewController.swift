@@ -26,6 +26,7 @@ extension PhotoPickerViewController : RequestPermissionable {
         
          let getSortDescriptors = [
                NSSortDescriptor(key: "creationDate", ascending: false),
+               NSSortDescriptor(key: "modificationDate", ascending: false)
            ] // 최근 항목
         
         let fetchOptions = PHFetchOptions()
@@ -33,7 +34,7 @@ extension PhotoPickerViewController : RequestPermissionable {
         fetchOptions.sortDescriptors = getSortDescriptors
         
         let standardFetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-        
+    
         
         getPHAssets(album: standardFetchResult) { [weak self]  result in
             
@@ -75,3 +76,13 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
         picker.dismiss(animated: true, completion: nil)
     }
 }
+
+extension PhotoPickerViewController : PHPhotoLibraryChangeObserver {
+    func photoLibraryDidChange(_ changeInstance: PHChange) {
+        DispatchQueue.main.async {
+            self.showPhotoLibrary()
+        }
+    }
+}
+
+

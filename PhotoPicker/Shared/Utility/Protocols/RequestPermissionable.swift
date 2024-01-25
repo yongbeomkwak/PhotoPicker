@@ -63,16 +63,21 @@ public extension RequestPermissionable where Self: UIViewController {
     }
 
     func requestPhotoLibraryPermission() {
-        let status = PHPhotoLibrary.authorizationStatus()
+        let status = PHPhotoLibrary.authorizationStatus(for: .readWrite)
+        
+    
+        
         switch status {
-        case .authorized:
-            self.showPhotoLibrary()
+        case .authorized,.limited:
+            DispatchQueue.main.async {
+                self.showPhotoLibrary()
+            }
         case .denied, .restricted:
             self.showErrorMessage(type: .photoLibrary)
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization { status in
                 switch status {
-                case .authorized:
+                case .authorized, .limited:
                     DispatchQueue.main.async {
                         self.showPhotoLibrary()
                     }

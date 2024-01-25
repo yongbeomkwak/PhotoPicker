@@ -17,7 +17,11 @@ extension PhotoPickerViewController : UICollectionViewDelegate {
             return 
         }
         
-        DEBUG_LOG(output.dataSource.value[indexPath.row].id)
+        var current = output.dataSource.value
+        
+        current[indexPath.row].isSelected = !current[indexPath.row].isSelected
+        
+        output.dataSource.send(current)
         
     }
     

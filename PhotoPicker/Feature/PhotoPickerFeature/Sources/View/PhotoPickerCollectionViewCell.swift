@@ -63,14 +63,10 @@ class PhotoPickerCollectionViewCell: UICollectionViewCell {
        super.init(frame: frame)
          addSubviews()
          setLayout()
-         setupOverlayLayer()
-         cameraImageView.isHidden = true
+         // TODO : 오버레이 
+         //setupOverlayLayer()
      }
      
-     override func prepareForReuse() {
-       super.prepareForReuse()
-      
-     }
     
 }
 
@@ -102,18 +98,22 @@ extension PhotoPickerCollectionViewCell {
     }
     
     public func prepare(_ model: ImageEntity) {
-        
-        DEBUG_LOG(model.image)
     
+        imageView.image = model.image
+        
         if model.id == -1 { // 카메라 버튼
             cameraImageView.isHidden = false
             self.contentView.backgroundColor = colorFromRGB("CFD3D9")
-            imageView.layer.borderColor = UIColor.clear.cgColor
             countLabel.isHidden = true
-            overlayLayer.isHidden = true
+            imageView.isHidden = true
+           
             return
         } else {
-            imageView.image = model.image
+            cameraImageView.isHidden = true
+            self.contentView.backgroundColor = .clear
+            countLabel.isHidden = false
+            imageView.isHidden = false
+            
         }
         
         
@@ -143,6 +143,7 @@ extension PhotoPickerCollectionViewCell {
         imageView.layer.borderColor = UIColor.clear.cgColor
         countLabel.layer.borderColor = UIColor.white.cgColor
         countLabel.backgroundColor = .clear
+        countLabel.text = ""
       
     }
     

@@ -22,15 +22,23 @@ final class PhotoPickerViewModel : ViewModelType {
     struct Output {
         let dataSource : CurrentValueSubject<[ImageEntity], Never>
     }
+
+    
+    deinit {
+        DEBUG_LOG("❌ \(Self.self) deinit")
+    }
     
     func transform(input: Input) -> Output {
         
         
-        var outputDataSourceSubject = CurrentValueSubject<[ImageEntity], Never>([ImageEntity(id: -1)])
+        var outputDataSourceSubject = CurrentValueSubject<[ImageEntity], Never>([])
         
+      
         input.fetchData.sink(receiveValue: {
             
-            var index = outputDataSourceSubject.value.count
+            var index = 1
+            
+            DEBUG_LOG("index: \(index)")
             
             let convertedResult = $0.map { image in
                 
@@ -42,7 +50,7 @@ final class PhotoPickerViewModel : ViewModelType {
             }
             
             
-            outputDataSourceSubject.send( outputDataSourceSubject.value + convertedResult )
+            outputDataSourceSubject.send( [ImageEntity(id: -1)] + convertedResult )
             
         })
         .store(in: &subscription)

@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Photos
 
 class PhotoPickerViewController: UIViewController {
 
@@ -63,6 +64,10 @@ class PhotoPickerViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    deinit {
+        PHPhotoLibrary.shared().unregisterChangeObserver(self)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -76,7 +81,7 @@ class PhotoPickerViewController: UIViewController {
         setLayout()
         bindInput()
         requestPhotoLibraryPermission()
-        
+        PHPhotoLibrary.shared().register(self)
 
         // Do any additional setup after loading the view.
     }
@@ -85,6 +90,9 @@ class PhotoPickerViewController: UIViewController {
         super.viewDidAppear(animated)
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
+    
+    
+    
     
 }
 
@@ -136,6 +144,7 @@ extension PhotoPickerViewController {
             
             self.collectionView.reloadData()
         }
+        .store(in: &subscription)
       
     }
 }
