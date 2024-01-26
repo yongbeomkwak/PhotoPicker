@@ -72,6 +72,7 @@ class NavigationBarView: UIView {
         
         let label = UILabel()
         
+        label.font = .systemFont(ofSize: 17, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         

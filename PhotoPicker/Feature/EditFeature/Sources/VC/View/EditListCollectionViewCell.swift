@@ -42,12 +42,12 @@ extension EditListCollectionViewCell {
     
     func setLayout() {
         
-        imageView.setLeft(anchor: self.contentView.leftAnchor, constant: .zero)
-        imageView.setRight(anchor: self.contentView.rightAnchor, constant: .zero)
-        imageView.setTop(anchor: self.contentView.topAnchor, constant: .zero)
-        imageView.setBottom(anchor: self.contentView.bottomAnchor, constant: .zero)
-        imageView.setHeight(400)
+        imageView.setCenterY(view: self)
+        imageView.setCenterX(view: self)
+        imageView.setHeight(self.bounds.height)
+        imageView.setWidth(self.bounds.width)
         
+
     }
     
     func prepare(_ data: Data?) {
@@ -55,10 +55,8 @@ extension EditListCollectionViewCell {
         
         let image = UIImage(data: data!)
         
-        DEBUG_LOG("data \(image?.size)")
         
         self.imageView.image = image
-        self.imageView.backgroundColor = .red
         
         
     }

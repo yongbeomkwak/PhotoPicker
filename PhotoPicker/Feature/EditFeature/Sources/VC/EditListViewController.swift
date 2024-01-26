@@ -11,15 +11,15 @@ class EditListViewController: UIViewController {
 
     var viewModel: EditListViewModel!
     
-    private var navigationBarView: NavigationBarView = {
+    public lazy var navigationBarView: NavigationBarView = {
         
-        let view = NavigationBarView(frame: .zero, title: "", mode: .edit)
+        let view = NavigationBarView(frame: .zero, title: "\(1)/\(self.viewModel.dataes.count)", mode: .edit)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
     
-    var bottomContainerView: UIView = {
+    lazy var bottomContainerView: UIView = {
        
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +28,7 @@ class EditListViewController: UIViewController {
         return view
     }()
     
-    var cropButton: UIButton = {
+    lazy var cropButton: UIButton = {
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -116,8 +116,8 @@ extension EditListViewController {
         
         collectionView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
         collectionView.setRight(anchor: self.view.rightAnchor, constant: .zero)
-        collectionView.setTop(anchor: self.navigationBarView.bottomAnchor, constant: .zero)
-        collectionView.setBottom(anchor: self.bottomContainerView.topAnchor, constant: .zero)
+        collectionView.setTop(anchor: self.navigationBarView.bottomAnchor, constant: 20)
+        collectionView.setBottom(anchor: self.bottomContainerView.topAnchor, constant: 20)
         collectionView.setHeight(200)
         collectionView.dataSource = self
         collectionView.delegate = self

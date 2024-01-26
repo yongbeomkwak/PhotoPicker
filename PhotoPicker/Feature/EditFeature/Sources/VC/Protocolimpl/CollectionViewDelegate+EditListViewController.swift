@@ -35,6 +35,15 @@ extension EditListViewController : UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
+        
         return collectionView.bounds.size
+    }
+}
+
+extension EditListViewController: UIScrollViewDelegate {
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let i = Int(scrollView.contentOffset.x / APP_WIDTH())
+        
+        self.navigationBarView.changeTitle("\(i+1)/\(viewModel.dataes.count)")
     }
 }
