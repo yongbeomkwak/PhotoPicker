@@ -70,7 +70,7 @@ public extension UIView {
     }
 
     func setBottom(anchor: NSLayoutYAxisAnchor, constant: CGFloat) {
-        self.topAnchor.constraint(equalTo: anchor, constant: -constant).isActive = true
+        self.bottomAnchor.constraint(equalTo: anchor, constant: -constant).isActive = true
     }
 
     func setRight(anchor: NSLayoutXAxisAnchor, constant: CGFloat) {
@@ -131,3 +131,33 @@ public extension UIView {
         )
     }
 }
+
+extension CALayer {
+   
+    func addBorder(edge: UIRectEdge, color: UIColor, thickness: CGFloat) {
+
+      let border = CALayer()
+
+      switch edge {
+      case UIRectEdge.top:
+          border.frame = CGRect(x: 0, y: 0, width: frame.width, height: thickness)
+
+      case UIRectEdge.bottom:
+          border.frame = CGRect(x:0, y: frame.height - thickness, width: frame.width, height:thickness)
+
+      case UIRectEdge.left:
+          border.frame = CGRect(x:0, y:0, width: thickness, height: frame.height)
+
+      case UIRectEdge.right:
+          border.frame = CGRect(x: frame.width - thickness, y: 0, width: thickness, height: frame.height)
+
+      default: do {}
+      }
+
+      border.backgroundColor = color.cgColor
+
+      addSublayer(border)
+   }
+}
+
+
