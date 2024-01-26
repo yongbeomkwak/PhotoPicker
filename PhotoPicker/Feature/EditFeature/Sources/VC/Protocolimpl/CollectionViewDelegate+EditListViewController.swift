@@ -46,5 +46,6 @@ extension EditListViewController: UIScrollViewDelegate {
         
         self.navigationBarView.changeTitle("\(i+1)/\(viewModel.dataes.count)")
         self.carouselLabel.text = "\(i+1)"
+        self.input.index.send(i)
     }
 }

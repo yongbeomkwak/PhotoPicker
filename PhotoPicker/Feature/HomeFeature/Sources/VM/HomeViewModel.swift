@@ -22,6 +22,10 @@ final class HomeViewModel : ViewModelType {
     
     private var subscription = Set<AnyCancellable>()
     
+    deinit {
+        DEBUG_LOG("❌ \(Self.self)")
+    }
+    
     func transform(input: Input) -> Output {
         
         let outputNavigateSubject = PassthroughSubject<Void,Never>()

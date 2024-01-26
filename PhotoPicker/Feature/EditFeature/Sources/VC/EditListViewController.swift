@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import Combine
 
 class EditListViewController: UIViewController {
 
     var viewModel: EditListViewModel!
+    var input: EditListViewModel.Input!
+    var output: EditListViewModel.Output!
+    var subscription: Set<AnyCancellable> = .init()
+    var cropComponent : CropComponent!
     
     public lazy var navigationBarView: NavigationBarView = {
         
@@ -94,8 +99,9 @@ class EditListViewController: UIViewController {
     }()
     
     
-    init(viewModel: EditListViewModel) {
+    init(viewModel: EditListViewModel, cropComponent: CropComponent) {
         self.viewModel = viewModel
+        self.cropComponent = cropComponent
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -108,7 +114,7 @@ class EditListViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setLayout()
-        
+        bindInput()
         navigationBarView.changeCountLabel("\(viewModel.dataes.count)")
         
         
@@ -173,6 +179,40 @@ extension EditListViewController {
             
         
         
+    }
+    
+    func bindInput() {
+        
+        
+        
+        input = EditListViewModel.Input(tapCrop: cropButton.tapPublisher, tapRotate: rotateButton.tapPublisher)
+        
+        bindOutput(input: input)
+    }
+    
+    func bindOutput(input: EditListViewModel.Input) {
+        
+        output = viewModel.transform(input: input)
+        
+        output.selelctedData.sink { [weak self]data in
+            
+            guard let self else {return}
+            
+            let vc = cropComponent.cropFactory.makeViewController(data: data)
+            
+            vc.modalPresentationStyle = .fullScreen
+            
+            self.present(vc, animated: false)
+            
+            
+        }
+        .store(in: &subscription)
+        
+        
+        output.rotate.sink { state in
+            DEBUG_LOG(state)
+        }
+        .store(in: &subscription)
     }
     
 }

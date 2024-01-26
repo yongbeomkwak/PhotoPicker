@@ -15,7 +15,7 @@ final class EditListFactoryImpl : EditListFactory {
         
         let viewModel = EditListViewModel(dataes: images)
         
-        return EditListViewController(viewModel: viewModel)
+        return EditListViewController(viewModel: viewModel, cropComponent: CropComponent())
     }
     
 }

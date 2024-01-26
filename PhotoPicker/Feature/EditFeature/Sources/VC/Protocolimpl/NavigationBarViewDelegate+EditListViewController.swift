@@ -15,7 +15,7 @@ extension EditListViewController : NavigationBarViewDelegate {
     }
     
     func tapRightButton() {
-        
+        //TODO: 완료 
     }
     
     

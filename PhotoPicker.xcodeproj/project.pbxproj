@@ -52,6 +52,11 @@
 		B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057382E2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift */; };
 		B05738312B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738302B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift */; };
 		B05738342B63ADD10089267C /* EditListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738332B63ADD10089267C /* EditListCollectionViewCell.swift */; };
+		B05738362B63D3210089267C /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738352B63D3210089267C /* CropViewController.swift */; };
+		B05738382B63D3720089267C /* CropViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738372B63D3720089267C /* CropViewModel.swift */; };
+		B057383F2B63D3E40089267C /* CropFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057383E2B63D3E40089267C /* CropFactory.swift */; };
+		B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738412B63D4360089267C /* CropFactoryImpl.swift */; };
+		B05738442B63D48D0089267C /* CropComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738432B63D48D0089267C /* CropComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +118,11 @@
 		B057382E2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+EditListViewController.swift"; sourceTree = "<group>"; };
 		B05738302B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewDelegate+EditListViewController.swift"; sourceTree = "<group>"; };
 		B05738332B63ADD10089267C /* EditListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListCollectionViewCell.swift; sourceTree = "<group>"; };
+		B05738352B63D3210089267C /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		B05738372B63D3720089267C /* CropViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewModel.swift; sourceTree = "<group>"; };
+		B057383E2B63D3E40089267C /* CropFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactory.swift; sourceTree = "<group>"; };
+		B05738412B63D4360089267C /* CropFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactoryImpl.swift; sourceTree = "<group>"; };
+		B05738432B63D48D0089267C /* CropComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +262,7 @@
 		B05737CC2B60E8C20089267C /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				B05738392B63D3B60089267C /* CropFeature */,
 				B057381B2B6384260089267C /* EditFeature */,
 				B05737E92B61123F0089267C /* PhotoPickerFeature */,
 				B05737B52B5FAD370089267C /* HomeFeature */,
@@ -491,6 +502,58 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B05738392B63D3B60089267C /* CropFeature */ = {
+			isa = PBXGroup;
+			children = (
+				B057383B2B63D3C30089267C /* Sources */,
+				B057383A2B63D3BE0089267C /* Interface */,
+			);
+			path = CropFeature;
+			sourceTree = "<group>";
+		};
+		B057383A2B63D3BE0089267C /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B057383E2B63D3E40089267C /* CropFactory.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		B057383B2B63D3C30089267C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B05738402B63D4290089267C /* DI */,
+				B057383D2B63D3CE0089267C /* VC */,
+				B057383C2B63D3CB0089267C /* VM */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B057383C2B63D3CB0089267C /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				B05738372B63D3720089267C /* CropViewModel.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		B057383D2B63D3CE0089267C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				B05738352B63D3210089267C /* CropViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		B05738402B63D4290089267C /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				B05738412B63D4360089267C /* CropFactoryImpl.swift */,
+				B05738432B63D48D0089267C /* CropComponent.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -601,8 +664,10 @@
 				B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */,
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
 				B05737E02B60F74D0089267C /* UIButton+publisher.swift in Sources */,
+				B057383F2B63D3E40089267C /* CropFactory.swift in Sources */,
 				B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */,
 				B057382A2B638B760089267C /* EditListViewModel.swift in Sources */,
+				B05738442B63D48D0089267C /* CropComponent.swift in Sources */,
 				B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */,
 				B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */,
 				B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */,
@@ -614,6 +679,7 @@
 				B05738342B63ADD10089267C /* EditListCollectionViewCell.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
 				B05738222B638A440089267C /* EditListFactory.swift in Sources */,
+				B05738362B63D3210089267C /* CropViewController.swift in Sources */,
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
@@ -625,9 +691,11 @@
 				B05738272B638AFA0089267C /* EditListFactoryImpl.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
+				B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */,
 				B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */,
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,
+				B05738382B63D3720089267C /* CropViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
 				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
 				B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */,
