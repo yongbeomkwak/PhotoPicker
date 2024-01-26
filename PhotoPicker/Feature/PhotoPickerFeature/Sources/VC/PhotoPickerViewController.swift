@@ -11,7 +11,7 @@ import Photos
 
 class PhotoPickerViewController: UIViewController {
 
-    
+    let editListComponent: EditListComponent
     private let viewModel : PhotoPickerViewModel!
     public var input : PhotoPickerViewModel.Input!
     public var output: PhotoPickerViewModel.Output!
@@ -59,8 +59,9 @@ class PhotoPickerViewController: UIViewController {
         
     } ()
     
-    init(viewModel: PhotoPickerViewModel) {
+    init(viewModel: PhotoPickerViewModel,editListComponent: EditListComponent) {
         self.viewModel = viewModel
+        self.editListComponent = editListComponent
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -122,7 +123,7 @@ extension PhotoPickerViewController {
         collectionView.setBottom(anchor: self.bottomEditButtonContainerView.topAnchor, constant: .zero)
         
 
-       
+        bottomEditButtonContainerView.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
 

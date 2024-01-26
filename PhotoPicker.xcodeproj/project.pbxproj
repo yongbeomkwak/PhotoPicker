@@ -34,7 +34,7 @@
 		B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737FE2B61240F0089267C /* NavigationBarView.swift */; };
 		B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738012B612DE30089267C /* DaangnImageSystem.swift */; };
 		B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */; };
-		B05738072B614B4C0089267C /* EditButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738062B614B4C0089267C /* EditButtonContainerView.swift */; };
+		B05738072B614B4C0089267C /* BottomEditButtonContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738062B614B4C0089267C /* BottomEditButtonContainerView.swift */; };
 		B05738092B615D670089267C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738082B615D670089267C /* UIImage+Extension.swift */; };
 		B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */; };
 		B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */; };
@@ -43,6 +43,12 @@
 		B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738152B62614F0089267C /* RequestPermissionable.swift */; };
 		B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */; };
 		B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738192B6292860089267C /* PHAsset+Extension.swift */; };
+		B057381F2B6385170089267C /* EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057381E2B6385170089267C /* EditListViewController.swift */; };
+		B05738222B638A440089267C /* EditListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738212B638A440089267C /* EditListFactory.swift */; };
+		B05738252B638A7A0089267C /* EditListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738242B638A7A0089267C /* EditListComponent.swift */; };
+		B05738272B638AFA0089267C /* EditListFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738262B638AFA0089267C /* EditListFactoryImpl.swift */; };
+		B057382A2B638B760089267C /* EditListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738292B638B760089267C /* EditListViewModel.swift */; };
+		B057382C2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +92,7 @@
 		B05737FE2B61240F0089267C /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
 		B05738012B612DE30089267C /* DaangnImageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaangnImageSystem.swift; sourceTree = "<group>"; };
 		B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
-		B05738062B614B4C0089267C /* EditButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditButtonContainerView.swift; sourceTree = "<group>"; };
+		B05738062B614B4C0089267C /* BottomEditButtonContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomEditButtonContainerView.swift; sourceTree = "<group>"; };
 		B05738082B615D670089267C /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		B057380B2B620E370089267C /* GridCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +101,12 @@
 		B05738152B62614F0089267C /* RequestPermissionable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestPermissionable.swift; sourceTree = "<group>"; };
 		B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RequestPermissionable+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 		B05738192B6292860089267C /* PHAsset+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
+		B057381E2B6385170089267C /* EditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewController.swift; sourceTree = "<group>"; };
+		B05738212B638A440089267C /* EditListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListFactory.swift; sourceTree = "<group>"; };
+		B05738242B638A7A0089267C /* EditListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListComponent.swift; sourceTree = "<group>"; };
+		B05738262B638AFA0089267C /* EditListFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListFactoryImpl.swift; sourceTree = "<group>"; };
+		B05738292B638B760089267C /* EditListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewModel.swift; sourceTree = "<group>"; };
+		B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomEditButtonContainerView+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +246,7 @@
 		B05737CC2B60E8C20089267C /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				B057381B2B6384260089267C /* EditFeature */,
 				B05737E92B61123F0089267C /* PhotoPickerFeature */,
 				B05737B52B5FAD370089267C /* HomeFeature */,
 			);
@@ -368,7 +381,7 @@
 		B05738052B614B230089267C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B05738062B614B4C0089267C /* EditButtonContainerView.swift */,
+				B05738062B614B4C0089267C /* BottomEditButtonContainerView.swift */,
 				B057380D2B620F740089267C /* PhotoPickerCollectionViewCell.swift */,
 			);
 			path = View;
@@ -388,6 +401,7 @@
 				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
 				B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */,
 				B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */,
+				B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */,
 			);
 			path = Protocolimpl;
 			sourceTree = "<group>";
@@ -398,6 +412,58 @@
 				B05738132B625D930089267C /* ImageEntity.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		B057381B2B6384260089267C /* EditFeature */ = {
+			isa = PBXGroup;
+			children = (
+				B05738202B638A290089267C /* Interface */,
+				B057381C2B6384350089267C /* Sources */,
+			);
+			path = EditFeature;
+			sourceTree = "<group>";
+		};
+		B057381C2B6384350089267C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B05738282B638B680089267C /* VM */,
+				B05738232B638A710089267C /* DI */,
+				B057381D2B6384400089267C /* VC */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		B057381D2B6384400089267C /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				B057381E2B6385170089267C /* EditListViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		B05738202B638A290089267C /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				B05738212B638A440089267C /* EditListFactory.swift */,
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		B05738232B638A710089267C /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				B05738242B638A7A0089267C /* EditListComponent.swift */,
+				B05738262B638AFA0089267C /* EditListFactoryImpl.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		B05738282B638B680089267C /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				B05738292B638B760089267C /* EditListViewModel.swift */,
+			);
+			path = VM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -500,14 +566,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B057381F2B6385170089267C /* EditListViewController.swift in Sources */,
 				B05737CF2B60EABA0089267C /* AppDependency.swift in Sources */,
 				B05737EC2B61132D0089267C /* PhotoPickerFactory.swift in Sources */,
-				B05738072B614B4C0089267C /* EditButtonContainerView.swift in Sources */,
+				B057382C2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift in Sources */,
+				B05738252B638A7A0089267C /* EditListComponent.swift in Sources */,
+				B05738072B614B4C0089267C /* BottomEditButtonContainerView.swift in Sources */,
 				B05738022B612DE30089267C /* DaangnImageSystem.swift in Sources */,
 				B05737DA2B60EDDF0089267C /* HomeFactoryImpl.swift in Sources */,
 				B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */,
 				B05737E02B60F74D0089267C /* UIButton+publisher.swift in Sources */,
 				B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */,
+				B057382A2B638B760089267C /* EditListViewModel.swift in Sources */,
 				B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */,
 				B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */,
 				B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */,
@@ -517,6 +587,7 @@
 				B05737F22B61145A0089267C /* PhotoPickerFactoryImpl.swift in Sources */,
 				B05738092B615D670089267C /* UIImage+Extension.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
+				B05738222B638A440089267C /* EditListFactory.swift in Sources */,
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
@@ -524,6 +595,7 @@
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */,
+				B05738272B638AFA0089267C /* EditListFactoryImpl.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,

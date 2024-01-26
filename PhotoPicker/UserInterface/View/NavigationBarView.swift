@@ -140,12 +140,12 @@ extension NavigationBarView {
             
         case .photoPicker, .edit:
                 leftButton.setImage(.setImage(.back), for: .normal)
-                leftButton.tintColor = .setColor(.secondary)
+            leftButton.tintColor = mode == .photoPicker ? .setColor(.secondary) : .white
             
                 rightButton.setTitle(title: "완료", ofSize: 15,for: .normal)
                 rightButton.setTitle(title: "완료", ofSize: 15,textColor: .lightGray ,for: .disabled)
                 
-                rightLabel.textColor = .setColor(.primary)
+            rightLabel.textColor = mode == .photoPicker ? .setColor(.primary) : .white
                 rightLabel.font = .systemFont(ofSize: 15, weight: .bold)
                 
                 titleLabel.textColor = mode == .photoPicker ? .setColor(.secondary) : .white
