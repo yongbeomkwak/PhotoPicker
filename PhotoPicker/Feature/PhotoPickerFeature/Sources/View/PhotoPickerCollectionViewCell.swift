@@ -99,7 +99,12 @@ extension PhotoPickerCollectionViewCell {
     
     public func prepare(_ model: ImageEntity) {
     
-        imageView.image = model.image
+        if let image =  model.image {
+            imageView.image =  UIImage(data: image)
+        } else {
+            imageView.image = nil
+        }
+        
         
         if model.id == -1 { // 카메라 버튼
             cameraImageView.isHidden = false
@@ -132,7 +137,7 @@ extension PhotoPickerCollectionViewCell {
         imageView.layer.borderColor = UIColor.setColor(.primary).cgColor
         countLabel.layer.borderColor = UIColor.setColor(.primary).cgColor
         countLabel.backgroundColor = .setColor(.primary)
-        countLabel.text = "\(model.id)"
+        countLabel.text = "\(model.index)"
         
         
     }

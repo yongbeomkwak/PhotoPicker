@@ -143,7 +143,7 @@ extension NavigationBarView {
                 leftButton.tintColor = .setColor(.secondary)
             
                 rightButton.setTitle(title: "완료", ofSize: 15,for: .normal)
-                rightButton.setTitle(title: "완료", ofSize: 15,textColor: .gray ,for: .disabled)
+                rightButton.setTitle(title: "완료", ofSize: 15,textColor: .lightGray ,for: .disabled)
                 
                 rightLabel.textColor = .setColor(.primary)
                 rightLabel.font = .systemFont(ofSize: 15, weight: .bold)
@@ -212,4 +212,12 @@ extension NavigationBarView {
         self.titleLabel.text = str
     }
     
+    public func changeCountLabel(_ str: String) {
+        self.rightLabel.text = str
+    }
+    
+    public func changeAbleState(_ state: Bool) {
+        self.rightButton.isEnabled = state
+
+    }
 }

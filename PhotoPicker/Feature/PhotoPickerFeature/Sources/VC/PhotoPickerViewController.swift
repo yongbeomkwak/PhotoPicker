@@ -100,6 +100,7 @@ extension PhotoPickerViewController {
     
     func addSubviews() {
         self.view.addSubviews(navigationBarView,bottomEditButtonContainerView,collectionView)
+        
     }
     
     func setLayout() {
@@ -139,12 +140,30 @@ extension PhotoPickerViewController {
         
         
         output.dataSource
-            .sink { [weak self] _ in
+            .sink { [weak self] data in
             guard let self else {return}
-            
+        
+                
             self.collectionView.reloadData()
         }
         .store(in: &subscription)
+        
+        output.selectedItems
+            .sink(receiveValue: { [weak self] data in
+               
+                guard let self else {return}
+                
+                self.bottomEditButtonContainerView.changeAbleState(!data.isEmpty)
+                
+                
+                self.navigationBarView.changeCountLabel(data.isEmpty ? "" : "\(data.count)")
+                
+                self.navigationBarView.changeAbleState(!data.isEmpty)
+               
+                
+                
+            })
+            .store(in: &subscription)
       
     }
 }

@@ -8,14 +8,16 @@
 import Foundation
 import UIKit
 
-struct ImageEntity {
+struct ImageEntity : Codable {
     
     var id: Int
-    var image: UIImage?
+    var index: Int
+    var image: Data?
     var isSelected: Bool
     
-    init(id: Int = 0 , image: UIImage? = nil, isSelected: Bool = false) {
+    init(index: Int,image: Data? = nil,  id: Int = UUID().hashValue ,isSelected: Bool = false) {
         self.id = id
+        self.index = index
         self.image = image
         self.isSelected = isSelected
     }

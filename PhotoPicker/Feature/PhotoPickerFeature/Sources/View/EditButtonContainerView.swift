@@ -18,8 +18,9 @@ class BottomEditButtonContainerView: UIView {
         let flipedImage = image.flipHorizontally()! // 이미지 뒤집기
         
         button.setImage(flipedImage, for: .normal)
-        button.tintColor = .setColor(.secondary)
+       
         button.setTitle(title: "편집", ofSize: 16, weight: .light,textColor: .setColor(.secondary))
+        button.setTitle(title: "편집", ofSize: 16,textColor: .lightGray ,for: .disabled)
         button.setInsets(forContentPadding: .zero, imageTitlePadding: 5)
         button.translatesAutoresizingMaskIntoConstraints = false
         
@@ -75,5 +76,11 @@ extension BottomEditButtonContainerView {
         
     }
     
+    public func changeAbleState(_ state: Bool) {
+        
+        self.editButton.isEnabled = state
+        
+        editButton.tintColor = state ? .setColor(.secondary) : .lightGray
+    }
     
 }

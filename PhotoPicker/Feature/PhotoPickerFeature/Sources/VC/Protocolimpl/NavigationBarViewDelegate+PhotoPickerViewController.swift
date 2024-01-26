@@ -15,10 +15,8 @@ extension PhotoPickerViewController : NavigationBarViewDelegate {
     }
     
     func tapRightButton() {
-        DEBUG_LOG(output.dataSource.value)
-        self.collectionView.reloadData()
         
     }
-        
+    
     
 }
