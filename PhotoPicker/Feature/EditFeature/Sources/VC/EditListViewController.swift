@@ -50,6 +50,29 @@ class EditListViewController: UIViewController {
         
     }()
     
+    let flowLayout : UICollectionViewFlowLayout = {
+        
+        let layout = UICollectionViewFlowLayout()
+        
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.scrollDirection = .horizontal
+        
+        return layout
+    }()
+    
+    lazy var collectionView : UICollectionView = {
+       
+        let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        
+        view.register(EditListCollectionViewCell.self, forCellWithReuseIdentifier: EditListCollectionViewCell.id)
+        view.showsHorizontalScrollIndicator = false
+        view.backgroundColor = .black
+        view.isPagingEnabled = true 
+        
+        return view
+    }()
+    
     
     init(viewModel: EditListViewModel) {
         self.viewModel = viewModel
@@ -65,6 +88,7 @@ class EditListViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setLayout()
+        
         navigationBarView.changeCountLabel("\(viewModel.dataes.count)")
         
         
@@ -76,7 +100,7 @@ class EditListViewController: UIViewController {
 extension EditListViewController {
     
     func addSubviews() {
-        self.view.addSubviews(navigationBarView,bottomContainerView)
+        self.view.addSubviews(navigationBarView, collectionView ,bottomContainerView)
         bottomContainerView.addSubviews(cropButton,rotateButton)
         self.view.backgroundColor = .black
     }
@@ -89,6 +113,15 @@ extension EditListViewController {
         navigationBarView.setHeight(48)
         navigationBarView.deleagte = self
         
+        
+        collectionView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
+        collectionView.setRight(anchor: self.view.rightAnchor, constant: .zero)
+        collectionView.setTop(anchor: self.navigationBarView.bottomAnchor, constant: .zero)
+        collectionView.setBottom(anchor: self.bottomContainerView.topAnchor, constant: .zero)
+        collectionView.setHeight(200)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    
         
         bottomContainerView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
         

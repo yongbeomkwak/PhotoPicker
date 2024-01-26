@@ -1,0 +1,40 @@
+//
+//  CollectionViewDelegate+EditListViewController.swift
+//  PhotoPicker
+//
+//  Created by yongbeomkwak on 1/26/24.
+//
+
+import Foundation
+import UIKit
+
+extension EditListViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.dataes.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EditListCollectionViewCell.id, for: indexPath) as? EditListCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        
+        cell.prepare(viewModel.dataes[indexPath.row])
+        
+        return cell
+    }
+    
+    
+}
+
+extension EditListViewController : UICollectionViewDelegate {
+   
+}
+
+extension EditListViewController : UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return collectionView.bounds.size
+    }
+}

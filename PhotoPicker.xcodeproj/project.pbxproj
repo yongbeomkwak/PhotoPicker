@@ -50,6 +50,8 @@
 		B057382A2B638B760089267C /* EditListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738292B638B760089267C /* EditListViewModel.swift */; };
 		B057382C2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */; };
 		B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057382E2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift */; };
+		B05738312B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738302B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift */; };
+		B05738342B63ADD10089267C /* EditListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738332B63ADD10089267C /* EditListCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +111,8 @@
 		B05738292B638B760089267C /* EditListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewModel.swift; sourceTree = "<group>"; };
 		B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BottomEditButtonContainerView+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 		B057382E2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarViewDelegate+EditListViewController.swift"; sourceTree = "<group>"; };
+		B05738302B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewDelegate+EditListViewController.swift"; sourceTree = "<group>"; };
+		B05738332B63ADD10089267C /* EditListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +442,7 @@
 		B057381D2B6384400089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				B05738322B63ADAE0089267C /* View */,
 				B057382D2B6399250089267C /* Protocolimpl */,
 				B057381E2B6385170089267C /* EditListViewController.swift */,
 			);
@@ -473,8 +478,17 @@
 			isa = PBXGroup;
 			children = (
 				B057382E2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift */,
+				B05738302B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift */,
 			);
 			path = Protocolimpl;
+			sourceTree = "<group>";
+		};
+		B05738322B63ADAE0089267C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B05738332B63ADD10089267C /* EditListCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,11 +611,13 @@
 				B05737862B5FAB1F0089267C /* AppDelegate.swift in Sources */,
 				B05737F22B61145A0089267C /* PhotoPickerFactoryImpl.swift in Sources */,
 				B05738092B615D670089267C /* UIImage+Extension.swift in Sources */,
+				B05738342B63ADD10089267C /* EditListCollectionViewCell.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
 				B05738222B638A440089267C /* EditListFactory.swift in Sources */,
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
+				B05738312B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift in Sources */,
 				B05738142B625D930089267C /* ImageEntity.swift in Sources */,
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
