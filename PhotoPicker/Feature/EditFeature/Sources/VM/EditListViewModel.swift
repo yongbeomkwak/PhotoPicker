@@ -7,6 +7,26 @@
 
 import Foundation
 
-final class EditListViewModel {
+final class EditListViewModel : ViewModelType {
+
+    var dataes:[Data?]
+    
+    init(dataes: [Data?]) {
+        self.dataes = dataes
+    }
+    
+    
+    struct Input {
+        
+    }
+    
+    struct Output {
+        
+    }
+    
+    func transform(input: Input) -> Output {
+        
+        return Output()
+    }
     
 }

@@ -11,6 +11,14 @@ class EditListViewController: UIViewController {
 
     var viewModel: EditListViewModel!
     
+    private var navigationBarView: NavigationBarView = {
+        
+        let view = NavigationBarView(frame: .zero, title: "", mode: .edit)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+    }()
+    
     var bottomContainerView: UIView = {
        
         let view = UIView()
@@ -43,7 +51,6 @@ class EditListViewController: UIViewController {
     }()
     
     
-    
     init(viewModel: EditListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -58,6 +65,9 @@ class EditListViewController: UIViewController {
         super.viewDidLoad()
         addSubviews()
         setLayout()
+        navigationBarView.changeCountLabel("\(viewModel.dataes.count)")
+        
+        
         
     }
     
@@ -66,12 +76,19 @@ class EditListViewController: UIViewController {
 extension EditListViewController {
     
     func addSubviews() {
-        self.view.addSubviews(bottomContainerView)
+        self.view.addSubviews(navigationBarView,bottomContainerView)
         bottomContainerView.addSubviews(cropButton,rotateButton)
         self.view.backgroundColor = .black
     }
     
     func setLayout() {
+        
+        navigationBarView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
+        navigationBarView.setRight(anchor: self.view.rightAnchor, constant: .zero)
+        navigationBarView.setTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        navigationBarView.setHeight(48)
+        navigationBarView.deleagte = self
+        
         
         bottomContainerView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
         

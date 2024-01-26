@@ -13,16 +13,18 @@ final class PhotoPickerViewModel : ViewModelType {
     
     var subscription: Set<AnyCancellable> = .init()
     
+    
     struct Input {
         
         let fetchData : PassthroughSubject<[Data?], Never> = .init()
         let tapItem: PassthroughSubject<Int, Never> = .init()
-        
+        let tapMoveToEdit : PassthroughSubject<Void,Never> = .init()
     }
     
     struct Output {
         let dataSource : CurrentValueSubject<[ImageEntity], Never>
         let selectedItems: CurrentValueSubject<[(id:Int,mappingIndex:Int)], Never> //(id, mappingIndex: selectedItems -> dataSource
+        let finalItems: CurrentValueSubject<[Data?], Never>
     }
 
     
@@ -36,6 +38,8 @@ final class PhotoPickerViewModel : ViewModelType {
         var outputDataSourceSubject = CurrentValueSubject<[ImageEntity], Never>([])
         
         var outputSelectedItemsSubject = CurrentValueSubject<[(id:Int,mappingIndex:Int)],Never>([])
+        
+        var outputfinalItemsSubject = CurrentValueSubject<[Data?],Never>([])
         
       
         input.fetchData.sink(receiveValue: {
@@ -91,17 +95,43 @@ final class PhotoPickerViewModel : ViewModelType {
                 
                 
                 // 갱신
+                
+                var finalItems: [Data?] = []
+                
+                for selectedItem in selectedItems {
+                    finalItems.append(data[selectedItem.mappingIndex].image)
+                }
+                
+                
                 outputSelectedItemsSubject.send(selectedItems)
                 outputDataSourceSubject.send(data)
+                outputfinalItemsSubject.send(finalItems)
+                
                 
                 
             })
             .store(in: &subscription)
         
         
+        input.tapMoveToEdit
+            .combineLatest(outputDataSourceSubject.eraseToAnyPublisher(), outputSelectedItemsSubject.eraseToAnyPublisher())
+            .sink(receiveValue: { (_, data:[ImageEntity], selectedItems: [(id: Int, mappingIndex: Int)]) in
+                
+                var result: [Data?] = []
+                
+                for selectedItem in selectedItems {
+                    result.append(data[selectedItem.mappingIndex].image)
+                }
+                
+                outputfinalItemsSubject.send(result)
+                
+            }).store(in: &subscription)
+        
         
         return Output(
             dataSource: outputDataSourceSubject,
-            selectedItems: outputSelectedItemsSubject)
+            selectedItems: outputSelectedItemsSubject,
+            finalItems: outputfinalItemsSubject
+        )
     }
 }

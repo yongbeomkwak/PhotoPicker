@@ -12,7 +12,8 @@ final class EditListFactoryImpl : EditListFactory {
     
     func makeViewController(images: [Data?]) -> UIViewController {
         
-        let viewModel = EditListViewModel()
+        
+        let viewModel = EditListViewModel(dataes: images)
         
         return EditListViewController(viewModel: viewModel)
     }
