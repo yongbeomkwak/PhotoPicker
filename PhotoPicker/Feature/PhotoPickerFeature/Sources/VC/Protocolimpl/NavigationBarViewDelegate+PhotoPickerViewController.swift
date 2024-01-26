@@ -15,7 +15,7 @@ extension PhotoPickerViewController : NavigationBarViewDelegate {
     }
     
     func tapRightButton() {
-        
+        // TODO: 데이터 밖으로 
     }
     
     
