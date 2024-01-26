@@ -148,14 +148,15 @@ extension PhotoPickerViewController {
         }
         .store(in: &subscription)
         
+        
+        
         output.selectedItems
             .sink(receiveValue: { [weak self] data in
                
                 guard let self else {return}
                 
                 self.bottomEditButtonContainerView.changeAbleState(!data.isEmpty)
-                
-                
+
                 self.navigationBarView.changeCountLabel(data.isEmpty ? "" : "\(data.count)")
                 
                 self.navigationBarView.changeAbleState(!data.isEmpty)

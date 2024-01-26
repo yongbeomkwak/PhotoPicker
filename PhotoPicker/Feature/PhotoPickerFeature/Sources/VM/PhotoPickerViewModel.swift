@@ -15,7 +15,7 @@ final class PhotoPickerViewModel : ViewModelType {
     
     struct Input {
         
-        let fetchData : PassthroughSubject<[Data], Never> = .init()
+        let fetchData : PassthroughSubject<[Data?], Never> = .init()
         let tapItem: PassthroughSubject<Int, Never> = .init()
         
     }
@@ -69,9 +69,7 @@ final class PhotoPickerViewModel : ViewModelType {
                 if data[index].isSelected {
                     
                     let firstIndex = selectedItems.firstIndex(where: {$0.id == data[index].id})!
-                    
-                    DEBUG_LOG("\(firstIndex)\n \(selectedItems)")
-                    
+                
                     // 제거할 것보다 나중에 추가된 것들은 앞으로 하나씩 당겨준다
                     for i in stride(from:firstIndex, to: selectedItems.count, by:1) {
                         

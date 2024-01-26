@@ -62,13 +62,18 @@ extension PhotoPickerViewController : RequestPermissionable {
     
 }
 
+// 카메라 촬영 후
 extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {
             return
         }
         
+        let imageToData: Data? = image.pngData()
         
+        let curr = output.dataSource.value.compactMap{$0.image}
+        
+        input.fetchData.send(curr + [imageToData])
         picker.dismiss(animated: true, completion: nil)
     }
     
@@ -77,6 +82,7 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
     }
 }
 
+// 제한된 상태에서 선택한 사진이 변경될 때
 extension PhotoPickerViewController : PHPhotoLibraryChangeObserver {
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         DispatchQueue.main.async {
