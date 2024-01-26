@@ -19,6 +19,26 @@ class EditListViewController: UIViewController {
         return view
     }()
     
+    public var carouselLabel: UILabel =  {
+        
+        let label = UILabel()
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .setColor(.primary)
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20, weight: .heavy, width: .standard)
+        label.textColor = .white
+        label.text = "1"
+        label.layer.cornerRadius = 20
+        label.layer.borderWidth = 2
+        label.clipsToBounds = true
+        label.layer.borderColor = UIColor.setColor(.primary).cgColor
+        
+        return label
+        
+    }()
+    
+    
     lazy var bottomContainerView: UIView = {
        
         let view = UIView()
@@ -100,7 +120,7 @@ class EditListViewController: UIViewController {
 extension EditListViewController {
     
     func addSubviews() {
-        self.view.addSubviews(navigationBarView, collectionView ,bottomContainerView)
+        self.view.addSubviews(navigationBarView, collectionView ,bottomContainerView, carouselLabel)
         bottomContainerView.addSubviews(cropButton,rotateButton)
         self.view.backgroundColor = .black
     }
@@ -113,6 +133,12 @@ extension EditListViewController {
         navigationBarView.setHeight(48)
         navigationBarView.deleagte = self
         
+        
+        carouselLabel.setTop(anchor: self.navigationBarView.bottomAnchor, constant: 10)
+        carouselLabel.setRight(anchor: self.view.rightAnchor, constant: 30)
+        carouselLabel.setHeight(40)
+        carouselLabel.setWidth(40)
+
         
         collectionView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
         collectionView.setRight(anchor: self.view.rightAnchor, constant: .zero)
