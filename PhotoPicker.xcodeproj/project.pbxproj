@@ -57,10 +57,12 @@
 		B057383F2B63D3E40089267C /* CropFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057383E2B63D3E40089267C /* CropFactory.swift */; };
 		B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738412B63D4360089267C /* CropFactoryImpl.swift */; };
 		B05738442B63D48D0089267C /* CropComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738432B63D48D0089267C /* CropComponent.swift */; };
-		B05738472B63E8A00089267C /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738462B63E8A00089267C /* ControlView.swift */; };
-		B05738492B63F0D00089267C /* EdgeCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738482B63F0D00089267C /* EdgeCircleButton.swift */; };
+		B05738472B63E8A00089267C /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738462B63E8A00089267C /* CropView.swift */; };
 		B057384B2B63F1200089267C /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */; };
 		B057384D2B64AC510089267C /* PhotoPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */; };
+		B057385E2B64F4760089267C /* UIImageVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */; };
+		B05738602B6501410089267C /* CropPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057385F2B6501410089267C /* CropPickerView.swift */; };
+		B05738622B6509A60089267C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738612B6509A60089267C /* CircleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,10 +129,12 @@
 		B057383E2B63D3E40089267C /* CropFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactory.swift; sourceTree = "<group>"; };
 		B05738412B63D4360089267C /* CropFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactoryImpl.swift; sourceTree = "<group>"; };
 		B05738432B63D48D0089267C /* CropComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropComponent.swift; sourceTree = "<group>"; };
-		B05738462B63E8A00089267C /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
-		B05738482B63F0D00089267C /* EdgeCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCircleButton.swift; sourceTree = "<group>"; };
+		B05738462B63E8A00089267C /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
 		B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModelTests.swift; sourceTree = "<group>"; };
+		B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageVIew+Extension.swift"; sourceTree = "<group>"; };
+		B057385F2B6501410089267C /* CropPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPickerView.swift; sourceTree = "<group>"; };
+		B05738612B6509A60089267C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,7 @@
 				B05738082B615D670089267C /* UIImage+Extension.swift */,
 				B05738192B6292860089267C /* PHAsset+Extension.swift */,
 				B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */,
+				B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -568,8 +573,9 @@
 		B05738452B63E8860089267C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B05738462B63E8A00089267C /* ControlView.swift */,
-				B05738482B63F0D00089267C /* EdgeCircleButton.swift */,
+				B05738462B63E8A00089267C /* CropView.swift */,
+				B057385F2B6501410089267C /* CropPickerView.swift */,
+				B05738612B6509A60089267C /* CircleButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -686,8 +692,10 @@
 				B05737E02B60F74D0089267C /* UIButton+publisher.swift in Sources */,
 				B057383F2B63D3E40089267C /* CropFactory.swift in Sources */,
 				B05737FF2B6124100089267C /* NavigationBarView.swift in Sources */,
+				B05738602B6501410089267C /* CropPickerView.swift in Sources */,
 				B057382A2B638B760089267C /* EditListViewModel.swift in Sources */,
 				B05738442B63D48D0089267C /* CropComponent.swift in Sources */,
+				B057385E2B64F4760089267C /* UIImageVIew+Extension.swift in Sources */,
 				B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */,
 				B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */,
 				B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */,
@@ -703,6 +711,7 @@
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
+				B05738622B6509A60089267C /* CircleButton.swift in Sources */,
 				B05738312B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift in Sources */,
 				B05738142B625D930089267C /* ImageEntity.swift in Sources */,
 				B057384B2B63F1200089267C /* UIBezierPath+Extension.swift in Sources */,
@@ -715,11 +724,10 @@
 				B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */,
 				B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */,
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,
-				B05738472B63E8A00089267C /* ControlView.swift in Sources */,
+				B05738472B63E8A00089267C /* CropView.swift in Sources */,
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,
 				B05738382B63D3720089267C /* CropViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
-				B05738492B63F0D00089267C /* EdgeCircleButton.swift in Sources */,
 				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
 				B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */,
 				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,
