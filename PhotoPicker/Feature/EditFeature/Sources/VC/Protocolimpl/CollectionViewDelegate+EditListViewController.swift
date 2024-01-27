@@ -19,7 +19,7 @@ extension EditListViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        cell.prepare(viewModel.dataes[indexPath.row])
+        cell.prepare(viewModel.dataes[indexPath.row],viewModel.rotateState[indexPath.row])
         
         return cell
     }

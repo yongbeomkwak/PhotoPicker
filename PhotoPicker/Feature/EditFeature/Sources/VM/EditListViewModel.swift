@@ -10,12 +10,17 @@ import Combine
 
 enum RotateState : Int {
     
+    case none = -1
     case vertical = 0
-    case horizon
+    case horizontal
     case flipVertical
     case flipHorizontal
     
     func next() -> RotateState {
+        
+        if self == .none {
+            return .vertical
+        }
         
         return RotateState(rawValue:(self.rawValue+1)%4)!
     }
@@ -28,8 +33,11 @@ final class EditListViewModel : ViewModelType {
     
     var subscription: Set<AnyCancellable> = .init()
     
+    var rotateState: [RotateState]
+    
     init(dataes: [Data?]) {
         self.dataes = dataes
+        self.rotateState = [RotateState](repeating: .none, count: dataes.count)
     }
     
     deinit {
@@ -43,13 +51,13 @@ final class EditListViewModel : ViewModelType {
     }
     
     struct Output {
-        let rotate: AnyPublisher<RotateState, Never>
+        let rotate: AnyPublisher<Int, Never>
         let selelctedData: AnyPublisher<Data?, Never>
     }
     
     func transform(input: Input) -> Output {
         
-        var outputRotateSubject = CurrentValueSubject<RotateState, Never>(.vertical)
+        var outputRotateSubject = CurrentValueSubject<Int,Never>(0)
         var outputSelelctedDataSubject = PassthroughSubject<Data?, Never>()
         
         input.tapCrop
@@ -62,12 +70,12 @@ final class EditListViewModel : ViewModelType {
         
         
         input.tapRotate
-            .combineLatest(outputRotateSubject.eraseToAnyPublisher())
-            .sink { (_, state) in
-                
-                outputRotateSubject.send(state.next())
-                
-            }
+            .map{input.index.value}
+            .sink(receiveValue: { (index:Int) in
+                DEBUG_LOG("\(index)")
+                outputRotateSubject.send(index)
+            })
+            
             .store(in: &subscription)
         
         

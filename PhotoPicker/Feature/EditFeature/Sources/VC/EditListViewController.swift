@@ -205,8 +205,17 @@ extension EditListViewController {
         .store(in: &subscription)
         
         
-        output.rotate.sink { state in
-            DEBUG_LOG(state)
+        output.rotate
+            .dropFirst(1)
+            .sink { [weak self] (index:Int) in
+            
+            guard let self else {return }
+            
+            viewModel.rotateState[index] = viewModel.rotateState[index].next()
+        
+            
+            self.collectionView.reloadData()
+            
         }
         .store(in: &subscription)
     }

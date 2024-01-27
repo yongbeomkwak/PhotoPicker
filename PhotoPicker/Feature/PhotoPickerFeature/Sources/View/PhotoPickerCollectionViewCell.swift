@@ -63,8 +63,6 @@ class PhotoPickerCollectionViewCell: UICollectionViewCell {
        super.init(frame: frame)
          addSubviews()
          setLayout()
-         // TODO : 오버레이 
-         //setupOverlayLayer()
      }
      
     

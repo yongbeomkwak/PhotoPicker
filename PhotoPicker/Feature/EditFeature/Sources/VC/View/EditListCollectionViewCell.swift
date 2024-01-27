@@ -50,15 +50,35 @@ extension EditListCollectionViewCell {
 
     }
     
-    func prepare(_ data: Data?) {
-        
+    func prepare(_ data: Data?, _ state: RotateState) {
         
         let image = UIImage(data: data!)
-        
         
         self.imageView.image = image
         
         
+        DEBUG_LOG("STATE \(state)")
+        
+        switch state {
+        
+        case .none:
+            break
+        
+        case .vertical:
+            let rotate = CGAffineTransform(rotationAngle: .pi/2)
+            self.imageView.transform = rotate
+            
+        case .horizontal:
+            let rotate = CGAffineTransform(rotationAngle: .pi)
+            self.imageView.transform = rotate
+        case .flipVertical:
+            let rotate = CGAffineTransform(rotationAngle: .pi*3/2)
+            self.imageView.transform = rotate
+        case .flipHorizontal:
+            let rotate = CGAffineTransform(rotationAngle: .pi*2)
+            self.imageView.transform = rotate
+        }
+
     }
     
 }
