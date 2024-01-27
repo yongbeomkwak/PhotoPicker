@@ -17,17 +17,44 @@ class CropPickerView: UIView {
        return imageView
    }()
     
-    public var leftTopButton: CircleButton = CircleButton()
-    public var leftBottomButton: CircleButton = CircleButton()
-    public var rightTopButton: CircleButton = CircleButton()
-    public var rightBottomButton: CircleButton = CircleButton()
+    public var leftTopButton: CircleButton = {
+        
+        let view = CircleButton()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+        
+    }()
+    public var leftBottomButton: CircleButton = {
+        
+        let view = CircleButton()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+        
+    }()
+    public var rightTopButton: CircleButton = {
+        
+        let view = CircleButton()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+        
+    }()
+    public var rightBottomButton: CircleButton = {
+        
+        let view = CircleButton()
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        return view
+        
+    }()
        
-//       public let dimView: CropDimView = {
-//           let view = CropDimView()
-//           view.translatesAutoresizingMaskIntoConstraints = false
-//           view.alpha = 1
-//           return view
-//       }()
+
     
     public let cropView: CropView = {
            let cropView = CropView()
@@ -60,7 +87,7 @@ class CropPickerView: UIView {
 extension CropPickerView {
     
     func addSubviews() {
-        self.addSubviews(cropView,leftTopButton,leftBottomButton,rightTopButton,rightBottomButton,imageView)
+        self.addSubviews(imageView,cropView,leftTopButton,leftBottomButton,rightTopButton,rightBottomButton)
     }
     
     func setLayout() {
@@ -72,23 +99,22 @@ extension CropPickerView {
         imageView.setTop(anchor: self.topAnchor, constant: .zero)
         imageView.setBottom(anchor: self.bottomAnchor, constant: .zero)
         
-//        cropView.setLeft(anchor: imageView.leftAnchor, constant: -5)
-//        cropView.setRight(anchor: imageView.rightAnchor, constant: -5)
-//        cropView.setTop(anchor: imageView.topAnchor, constant: -5)
-//        cropView.setBottom(anchor: imageView.bottomAnchor, constant: -5)
-//
-//        
-//        leftTopButton.setTop(anchor: cropView.topAnchor, constant: -20)
-//        leftTopButton.setLeft(anchor: cropView.leftAnchor, constant: -20)
+        cropView.setLeft(anchor: imageView.leftAnchor, constant: -4)
+        cropView.setRight(anchor: imageView.rightAnchor, constant: -4)
+        cropView.setTop(anchor: imageView.topAnchor, constant: -4)
+        cropView.setBottom(anchor: imageView.bottomAnchor, constant: -4)
         
-//        leftBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -20)
-//        leftBottomButton.setLeft(anchor: cropView.leftAnchor, constant: -20)
-//        
-//        rightTopButton.setTop(anchor: cropView.topAnchor, constant: -20)
-//        rightTopButton.setRight(anchor: cropView.rightAnchor, constant: -20)
-//        
-//        rightBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -10)
-//        rightBottomButton.setRight(anchor: cropView.rightAnchor, constant: -10)
+        leftTopButton.setTop(anchor: cropView.topAnchor, constant: -15)
+        leftTopButton.setLeft(anchor: cropView.leftAnchor, constant: -15)
+        
+        leftBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -15)
+        leftBottomButton.setLeft(anchor: cropView.leftAnchor, constant: -15)
+        
+        rightTopButton.setTop(anchor: cropView.topAnchor, constant: -15)
+        rightTopButton.setRight(anchor: cropView.rightAnchor, constant: -15)
+        
+        rightBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -15)
+        rightBottomButton.setRight(anchor: cropView.rightAnchor, constant: -15)
         
         
     }

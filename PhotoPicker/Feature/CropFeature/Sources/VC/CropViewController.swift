@@ -75,7 +75,8 @@ extension CropViewController {
         
         cropPickerView.setWidth(width)
         cropPickerView.setHeight(height)
-        cropPickerView.setCenter(view: self.view,offset: .zero)
+        cropPickerView.setCenterX(view: self.view)
+        cropPickerView.setCenterY(view: self.view, constant: 24)
         
     }
     
@@ -87,7 +88,9 @@ extension CropViewController {
 
             // 이미지 가로, 세로 최대 사이즈
             let maxContentWidth: CGFloat = APP_WIDTH()-40
-            let maxContentHeight: CGFloat = APP_HEIGHT()-48-150
+            let maxContentHeight: CGFloat = APP_HEIGHT()-48-STATUS_BAR_HEGHIT()-SAFEAREA_BOTTOM_HEIGHT()-100
+        
+            DEBUG_LOG("TMP : \(maxContentHeight)")
 
             // 최종 사이즈
             var resultWidth: CGFloat = 0
