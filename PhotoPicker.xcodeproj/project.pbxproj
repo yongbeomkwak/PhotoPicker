@@ -63,6 +63,8 @@
 		B057385E2B64F4760089267C /* UIImageVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */; };
 		B05738602B6501410089267C /* CropPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057385F2B6501410089267C /* CropPickerView.swift */; };
 		B05738622B6509A60089267C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738612B6509A60089267C /* CircleButton.swift */; };
+		B05738662B6529F50089267C /* EditListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738652B6529F50089267C /* EditListViewModelTests.swift */; };
+		B057386A2B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +137,8 @@
 		B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageVIew+Extension.swift"; sourceTree = "<group>"; };
 		B057385F2B6501410089267C /* CropPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPickerView.swift; sourceTree = "<group>"; };
 		B05738612B6509A60089267C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		B05738652B6529F50089267C /* EditListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewModelTests.swift; sourceTree = "<group>"; };
+		B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewDelegate+HomeViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 			children = (
 				B057379C2B5FAB210089267C /* HomeViewModelTests.swift */,
 				B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */,
+				B05738652B6529F50089267C /* EditListViewModelTests.swift */,
 			);
 			path = PhotoPickerTests;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 		B05737D42B60ED640089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
+				B05738682B6534F70089267C /* Protocolimpl */,
 				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
 			);
 			path = VC;
@@ -580,6 +586,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		B05738682B6534F70089267C /* Protocolimpl */ = {
+			isa = PBXGroup;
+			children = (
+				B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */,
+			);
+			path = Protocolimpl;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -726,6 +740,7 @@
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B05738472B63E8A00089267C /* CropView.swift in Sources */,
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,
+				B057386A2B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift in Sources */,
 				B05738382B63D3720089267C /* CropViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
 				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
@@ -741,6 +756,7 @@
 			files = (
 				B057379D2B5FAB210089267C /* HomeViewModelTests.swift in Sources */,
 				B057384D2B64AC510089267C /* PhotoPickerViewModelTests.swift in Sources */,
+				B05738662B6529F50089267C /* EditListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

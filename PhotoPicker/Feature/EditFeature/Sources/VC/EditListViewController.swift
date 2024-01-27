@@ -71,6 +71,8 @@ class EditListViewController: UIViewController {
         button.setImage(UIImage(systemName: "arrow.triangle.2.circlepath"), for: .normal)
         button.tintColor = .white
         
+        
+        
         return button
         
     }()
@@ -91,6 +93,8 @@ class EditListViewController: UIViewController {
         let view = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         
         view.register(EditListCollectionViewCell.self, forCellWithReuseIdentifier: EditListCollectionViewCell.id)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = .black
         view.isPagingEnabled = true 
@@ -126,7 +130,7 @@ class EditListViewController: UIViewController {
 extension EditListViewController {
     
     func addSubviews() {
-        self.view.addSubviews(navigationBarView, collectionView ,bottomContainerView, carouselLabel)
+        self.view.addSubviews(navigationBarView,bottomContainerView,collectionView,carouselLabel)
         bottomContainerView.addSubviews(cropButton,rotateButton)
         self.view.backgroundColor = .black
     }
@@ -150,33 +154,27 @@ extension EditListViewController {
         collectionView.setRight(anchor: self.view.rightAnchor, constant: .zero)
         collectionView.setTop(anchor: self.navigationBarView.bottomAnchor, constant: 20)
         collectionView.setBottom(anchor: self.bottomContainerView.topAnchor, constant: 20)
-        collectionView.setHeight(200)
         collectionView.dataSource = self
         collectionView.delegate = self
     
         
         bottomContainerView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
-        
         bottomContainerView.setRight(anchor: self.view.rightAnchor, constant: .zero)
-        
-        bottomContainerView.setBottom(anchor: self.view.bottomAnchor, constant: .zero)
+        bottomContainerView.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: .zero)
         
         bottomContainerView.setHeight(70)
         
         cropButton.setWidth(50)
         cropButton.setHeight(50)
-        cropButton.setTop(anchor: self.bottomContainerView.topAnchor, constant: .zero)
-        cropButton.setBottom(anchor: self.bottomContainerView.bottomAnchor, constant: .zero)
+       
         
         cropButton.setCenter(view: self.bottomContainerView, offset: .init(x: -50, y: 0))
         
         rotateButton.setWidth(50)
         rotateButton.setHeight(50)
-        rotateButton.setTop(anchor: self.bottomContainerView.topAnchor, constant: .zero)
-        rotateButton.setBottom(anchor: self.bottomContainerView.bottomAnchor, constant: .zero)
         
         rotateButton.setCenter(view: self.bottomContainerView, offset: .init(x: 50, y: 0))
-            
+//            
         
         
     }

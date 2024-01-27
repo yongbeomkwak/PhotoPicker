@@ -65,11 +65,57 @@ extension CropViewController {
         navigationBarView.setHeight(48)
         navigationBarView.deleagte = self
         
-       
-        cropPickerView.setCenterY(view: self.view)
+        let image = UIImage(data: viewModel.data!)!
+        
+        let size = configureImageviewSize(image: image)
+        
+        DEBUG_LOG("ggg: \(size)")
+        let (width,height) = (size.width,size.height)
+        
+        
+        cropPickerView.setWidth(width)
+        cropPickerView.setHeight(height)
+        cropPickerView.setCenter(view: self.view,offset: .zero)
         
     }
     
+    
+    private func configureImageviewSize(image: UIImage) -> CGRect {
+            // 이미지 원본 사이즈
+            let imageWidth: CGFloat = image.size.width
+            let imageHeight: CGFloat = image.size.height
+
+            // 이미지 가로, 세로 최대 사이즈
+            let maxContentWidth: CGFloat = APP_WIDTH()-40
+            let maxContentHeight: CGFloat = APP_HEIGHT()-48-150
+
+            // 최종 사이즈
+            var resultWidth: CGFloat = 0
+            var resultHeight: CGFloat = 0
+
+            // 이미지 사이즈에 맞게 보정
+            if imageWidth > imageHeight { // 가로
+                resultWidth = maxContentWidth
+                resultHeight = (maxContentWidth * image.size.height) / image.size.width
+
+            }else if imageWidth < imageHeight { // 세로
+                resultWidth = (maxContentHeight * image.size.width) / image.size.height
+                resultHeight = maxContentHeight
+
+                if resultWidth > maxContentWidth {
+                    resultWidth = maxContentWidth
+                    resultHeight = (maxContentWidth * image.size.height) / image.size.width
+                }
+
+            }else { // 1:1
+                resultWidth = maxContentWidth
+                resultHeight = maxContentWidth
+                
+               
+            }
+        
+            return CGRect(x: 0, y: 0, width: resultWidth, height: resultHeight)
+        }
 }
 
 extension CropViewController : NavigationBarViewDelegate {

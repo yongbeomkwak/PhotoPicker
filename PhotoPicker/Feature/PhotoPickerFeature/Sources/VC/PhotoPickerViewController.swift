@@ -9,8 +9,16 @@ import UIKit
 import Combine
 import Photos
 
-class PhotoPickerViewController: UIViewController {
 
+protocol PhotoPickerViewControllerDelegate : AnyObject {
+    func complete(data: [Data?])
+}
+
+
+class PhotoPickerViewController: UIViewController {
+    
+    weak var delegate: PhotoPickerViewControllerDelegate?
+    
     let editListComponent: EditListComponent
     private let viewModel : PhotoPickerViewModel!
     public var input : PhotoPickerViewModel.Input!

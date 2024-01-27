@@ -12,6 +12,7 @@ class CropPickerView: UIView {
        
    public let imageView: UIImageView = {
        let imageView = UIImageView()
+       imageView.contentMode = .scaleAspectFit
        imageView.translatesAutoresizingMaskIntoConstraints = false
        return imageView
    }()
@@ -28,7 +29,7 @@ class CropPickerView: UIView {
 //           return view
 //       }()
     
-       public let cropView: CropView = {
+    public let cropView: CropView = {
            let cropView = CropView()
            cropView.translatesAutoresizingMaskIntoConstraints = false
            return cropView
@@ -44,7 +45,7 @@ class CropPickerView: UIView {
     
     init(frame: CGRect, image: UIImage) {
         super.init(frame: frame)
-        self.imageView.image = image.fixOrientation
+        self.imageView.image = image
         addSubviews()
         setLayout()
         
@@ -64,47 +65,35 @@ extension CropPickerView {
     
     func setLayout() {
     
-        let imageSize = imageView.frameForImageInImageViewAspectFit
-        
-        
-        DEBUG_LOG("HHH \(imageSize)")
-     
-        imageView.setWidth(300)
-        imageView.setHeight(300)
-        imageView.setCenterY(view: self)
+    
         
         imageView.setLeft(anchor: self.leftAnchor, constant: .zero)
         imageView.setRight(anchor: self.rightAnchor, constant: .zero)
         imageView.setTop(anchor: self.topAnchor, constant: .zero)
         imageView.setBottom(anchor: self.bottomAnchor, constant: .zero)
         
-        cropView.setLeft(anchor: imageView.leftAnchor, constant: -10)
-        cropView.setRight(anchor: imageView.rightAnchor, constant: -10)
-        cropView.setTop(anchor: imageView.topAnchor, constant: -10)
-        cropView.setBottom(anchor: imageView.bottomAnchor, constant: -10)
+//        cropView.setLeft(anchor: imageView.leftAnchor, constant: -5)
+//        cropView.setRight(anchor: imageView.rightAnchor, constant: -5)
+//        cropView.setTop(anchor: imageView.topAnchor, constant: -5)
+//        cropView.setBottom(anchor: imageView.bottomAnchor, constant: -5)
+//
+//        
+//        leftTopButton.setTop(anchor: cropView.topAnchor, constant: -20)
+//        leftTopButton.setLeft(anchor: cropView.leftAnchor, constant: -20)
         
-        
-        leftTopButton.setTop(anchor: cropView.topAnchor, constant: -20)
-        leftTopButton.setLeft(anchor: cropView.leftAnchor, constant: -20)
-        
-        leftBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -20)
-        leftBottomButton.setLeft(anchor: cropView.leftAnchor, constant: -20)
-        
-        rightTopButton.setTop(anchor: cropView.topAnchor, constant: -20)
-        rightTopButton.setRight(anchor: cropView.rightAnchor, constant: -20)
-        
-        rightBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -10)
-        rightBottomButton.setRight(anchor: cropView.rightAnchor, constant: -10)
+//        leftBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -20)
+//        leftBottomButton.setLeft(anchor: cropView.leftAnchor, constant: -20)
+//        
+//        rightTopButton.setTop(anchor: cropView.topAnchor, constant: -20)
+//        rightTopButton.setRight(anchor: cropView.rightAnchor, constant: -20)
+//        
+//        rightBottomButton.setBottom(anchor: cropView.bottomAnchor, constant: -10)
+//        rightBottomButton.setRight(anchor: cropView.rightAnchor, constant: -10)
         
         
     }
     
-    
-    private func isImageRateHeightGreaterThan(_ imageSize: CGRect) -> Bool {
-           let widthRate =  bounds.width / imageSize.width
-           let heightRate = bounds.height / imageSize.height
-           return widthRate < heightRate
-    }
-    
+
+
     
 }

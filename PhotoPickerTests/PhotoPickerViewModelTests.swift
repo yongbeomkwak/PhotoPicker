@@ -162,38 +162,6 @@ final class PhotoPickerViewModelTests: XCTestCase {
         .store(in: &subscription)
     }
     
-    func test_tapMoveToEdit에_들어오면_final_items의_count는_2() {
-        
-        let input = PhotoPickerViewModel.Input()
-        
-        let output = viewModel.transform(input: input)
-        
-        input.fetchData.send([Data(),Data(),Data(),Data(),Data()])
-        
-        // 6개 데이터 소스(0,1,2,3,4,5)
-        // 0은 기본 데이터 + 5개는 추가 데이터
-        
-        input.tapItem.send(1)
-        input.tapItem.send(5)
-        input.tapItem.send(2)
-        
-        //인덱스 1,5,2 데이터 선택
-        //1,5,2의 isSelected = true
-        
-        input.tapItem.send(1)
-        
-        //인덱스 1데이터를 재 선택
-        // selectedItems = 3-1 = 2
-        
-        input.tapMoveToEdit.send(())
-        
-        output.finalItems.sink { data in
-            
-            XCTAssertEqual(data.count, 2)
-        }
-        .store(in: &subscription)
-        
-    }
                
 
 

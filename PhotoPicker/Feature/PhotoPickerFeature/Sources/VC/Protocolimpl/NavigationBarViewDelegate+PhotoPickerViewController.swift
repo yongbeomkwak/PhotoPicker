@@ -15,7 +15,8 @@ extension PhotoPickerViewController : NavigationBarViewDelegate {
     }
     
     func tapRightButton() {
-        // TODO: 데이터 밖으로 
+        delegate?.complete(data: output.finalItems.value)
+        self.navigationController?.popViewController(animated: true)
     }
     
     

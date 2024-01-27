@@ -18,7 +18,6 @@ final class PhotoPickerViewModel : ViewModelType {
         
         let fetchData : PassthroughSubject<[Data?], Never> = .init()
         let tapItem: PassthroughSubject<Int, Never> = .init()
-        let tapMoveToEdit : PassthroughSubject<Void,Never> = .init()
     }
     
     struct Output {
@@ -97,29 +96,21 @@ final class PhotoPickerViewModel : ViewModelType {
                 // 갱신
                 
                 
-                
-                outputSelectedItemsSubject.send(selectedItems)
-                outputDataSourceSubject.send(data)
-                
-                
-                
-            })
-            .store(in: &subscription)
-        
-        
-        input.tapMoveToEdit
-            .combineLatest(outputDataSourceSubject.eraseToAnyPublisher(), outputSelectedItemsSubject.eraseToAnyPublisher())
-            .sink(receiveValue: { (_, data:[ImageEntity], selectedItems: [(id: Int, mappingIndex: Int)]) in
-                
                 var result: [Data?] = []
                 
                 for selectedItem in selectedItems {
                     result.append(data[selectedItem.mappingIndex].image)
                 }
                 
+                outputSelectedItemsSubject.send(selectedItems)
+                outputDataSourceSubject.send(data)
                 outputfinalItemsSubject.send(result)
                 
-            }).store(in: &subscription)
+                
+            })
+            .store(in: &subscription)
+        
+        
         
         
         return Output(
