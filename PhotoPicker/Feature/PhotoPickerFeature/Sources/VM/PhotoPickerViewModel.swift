@@ -96,16 +96,10 @@ final class PhotoPickerViewModel : ViewModelType {
                 
                 // 갱신
                 
-                var finalItems: [Data?] = []
-                
-                for selectedItem in selectedItems {
-                    finalItems.append(data[selectedItem.mappingIndex].image)
-                }
                 
                 
                 outputSelectedItemsSubject.send(selectedItems)
                 outputDataSourceSubject.send(data)
-                outputfinalItemsSubject.send(finalItems)
                 
                 
                 

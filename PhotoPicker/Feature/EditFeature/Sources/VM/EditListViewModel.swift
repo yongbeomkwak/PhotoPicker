@@ -53,11 +53,9 @@ final class EditListViewModel : ViewModelType {
         var outputSelelctedDataSubject = PassthroughSubject<Data?, Never>()
         
         input.tapCrop
-            .combineLatest(input.index)
-            .sink { [weak self] (_, index: Int) in
-                
+            .sink { [weak self] _ in
                 guard let self else {return}
-                outputSelelctedDataSubject.send(self.dataes[index])
+                outputSelelctedDataSubject.send(self.dataes[input.index.value])
             }
             .store(in: &subscription)
         

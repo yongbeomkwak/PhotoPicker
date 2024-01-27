@@ -23,4 +23,14 @@ extension UIImage {
         
         return newImage
     }
+    
+    func getRatioWidthToHeight() -> CGFloat {
+        
+        return self.size.width / self.size.height
+    }
+    
+    func getRatioHeightToWidth() -> CGFloat {
+        
+        return self.size.height / self.size.width
+    }
 }

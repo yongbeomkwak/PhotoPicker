@@ -182,9 +182,7 @@ extension EditListViewController {
     }
     
     func bindInput() {
-        
-        
-        
+
         input = EditListViewModel.Input(tapCrop: cropButton.tapPublisher, tapRotate: rotateButton.tapPublisher)
         
         bindOutput(input: input)

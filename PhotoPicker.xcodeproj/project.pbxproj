@@ -12,7 +12,7 @@
 		B057378A2B5FAB1F0089267C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737892B5FAB1F0089267C /* HomeViewController.swift */; };
 		B057378F2B5FAB200089267C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B057378E2B5FAB200089267C /* Assets.xcassets */; };
 		B05737922B5FAB200089267C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B05737902B5FAB200089267C /* LaunchScreen.storyboard */; };
-		B057379D2B5FAB210089267C /* PhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057379C2B5FAB210089267C /* PhotoPickerTests.swift */; };
+		B057379D2B5FAB210089267C /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057379C2B5FAB210089267C /* HomeViewModelTests.swift */; };
 		B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737B92B5FB0480089267C /* UIView+Extension.swift */; };
 		B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */; };
 		B05737C02B5FEAC80089267C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05737BF2B5FEAC80089267C /* Utils.swift */; };
@@ -57,6 +57,10 @@
 		B057383F2B63D3E40089267C /* CropFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057383E2B63D3E40089267C /* CropFactory.swift */; };
 		B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738412B63D4360089267C /* CropFactoryImpl.swift */; };
 		B05738442B63D48D0089267C /* CropComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738432B63D48D0089267C /* CropComponent.swift */; };
+		B05738472B63E8A00089267C /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738462B63E8A00089267C /* ControlView.swift */; };
+		B05738492B63F0D00089267C /* EdgeCircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738482B63F0D00089267C /* EdgeCircleButton.swift */; };
+		B057384B2B63F1200089267C /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */; };
+		B057384D2B64AC510089267C /* PhotoPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +82,7 @@
 		B05737912B5FAB200089267C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B05737932B5FAB200089267C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B05737982B5FAB210089267C /* PhotoPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B057379C2B5FAB210089267C /* PhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerTests.swift; sourceTree = "<group>"; };
+		B057379C2B5FAB210089267C /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		B05737B92B5FB0480089267C /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B05737BC2B5FB6370089267C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		B05737BF2B5FEAC80089267C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -123,6 +127,10 @@
 		B057383E2B63D3E40089267C /* CropFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactory.swift; sourceTree = "<group>"; };
 		B05738412B63D4360089267C /* CropFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactoryImpl.swift; sourceTree = "<group>"; };
 		B05738432B63D48D0089267C /* CropComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropComponent.swift; sourceTree = "<group>"; };
+		B05738462B63E8A00089267C /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		B05738482B63F0D00089267C /* EdgeCircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeCircleButton.swift; sourceTree = "<group>"; };
+		B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
+		B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,7 +186,8 @@
 		B057379B2B5FAB210089267C /* PhotoPickerTests */ = {
 			isa = PBXGroup;
 			children = (
-				B057379C2B5FAB210089267C /* PhotoPickerTests.swift */,
+				B057379C2B5FAB210089267C /* HomeViewModelTests.swift */,
+				B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */,
 			);
 			path = PhotoPickerTests;
 			sourceTree = "<group>";
@@ -220,6 +229,7 @@
 				B05737C42B609FDF0089267C /* UIButton+Extension.swift */,
 				B05738082B615D670089267C /* UIImage+Extension.swift */,
 				B05738192B6292860089267C /* PHAsset+Extension.swift */,
+				B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -522,6 +532,7 @@
 		B057383B2B63D3C30089267C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B05738452B63E8860089267C /* View */,
 				B05738402B63D4290089267C /* DI */,
 				B057383D2B63D3CE0089267C /* VC */,
 				B057383C2B63D3CB0089267C /* VM */,
@@ -552,6 +563,15 @@
 				B05738432B63D48D0089267C /* CropComponent.swift */,
 			);
 			path = DI;
+			sourceTree = "<group>";
+		};
+		B05738452B63E8860089267C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B05738462B63E8A00089267C /* ControlView.swift */,
+				B05738482B63F0D00089267C /* EdgeCircleButton.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -685,6 +705,7 @@
 				B05737882B5FAB1F0089267C /* SceneDelegate.swift in Sources */,
 				B05738312B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift in Sources */,
 				B05738142B625D930089267C /* ImageEntity.swift in Sources */,
+				B057384B2B63F1200089267C /* UIBezierPath+Extension.swift in Sources */,
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */,
@@ -694,9 +715,11 @@
 				B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */,
 				B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */,
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,
+				B05738472B63E8A00089267C /* ControlView.swift in Sources */,
 				B05737F82B6117F20089267C /* PhotoPickerViewModel.swift in Sources */,
 				B05738382B63D3720089267C /* CropViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
+				B05738492B63F0D00089267C /* EdgeCircleButton.swift in Sources */,
 				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
 				B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */,
 				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,
@@ -708,7 +731,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B057379D2B5FAB210089267C /* PhotoPickerTests.swift in Sources */,
+				B057379D2B5FAB210089267C /* HomeViewModelTests.swift in Sources */,
+				B057384D2B64AC510089267C /* PhotoPickerViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

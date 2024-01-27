@@ -9,7 +9,7 @@ import XCTest
 import Combine
 @testable import PhotoPicker
 
-final class PhotoPickerTests: XCTestCase {
+final class HomeViewModelTests: XCTestCase {
 
     /*
     
