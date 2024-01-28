@@ -15,6 +15,14 @@ public func APP_HEIGHT() -> CGFloat {
     return UIScreen.main.bounds.size.height
 }
 
+public func STATUS_BAR_HEGHIT() -> CGFloat {
+    return max(20, UIApplication.shared.windows.first?.safeAreaInsets.top ?? 0)
+}
+
+public func SAFEAREA_BOTTOM_HEIGHT() -> CGFloat {
+    return UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0
+}
+
 // use: colorFromRGB(0xffffff)
 public func colorFromRGB(_ rgbValue: UInt, alpha: CGFloat = 1.0) -> UIColor {
     return UIColor(red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

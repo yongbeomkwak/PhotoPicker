@@ -14,7 +14,7 @@ final class PhotoPickerFactoryImpl : PhotoPickerFactory {
         
         let viewModel = PhotoPickerViewModel()
         
-        return PhotoPickerViewController(viewModel: viewModel)
+        return PhotoPickerViewController(viewModel: viewModel,editListComponent: EditListComponent())
     }
     
 }

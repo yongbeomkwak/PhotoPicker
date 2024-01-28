@@ -1,15 +1,16 @@
 //
-//  PhotoPickerTests.swift
+//  EditListViewModelTests.swift
 //  PhotoPickerTests
 //
-//  Created by yongbeomkwak on 1/23/24.
+//  Created by yongbeomkwak on 1/27/24.
 //
 
 import XCTest
 import Combine
 @testable import PhotoPicker
 
-final class PhotoPickerTests: XCTestCase {
+final class EditListViewModelTests: XCTestCase {
+
 
     /*
     
@@ -21,13 +22,13 @@ final class PhotoPickerTests: XCTestCase {
      
     */
     
-    var homeViewModel: HomeViewModel!
+    var viewModel: EditListViewModel!
     var subscription: Set<AnyCancellable>!
     
     override func setUpWithError() throws {
         try super.setUpWithError()
         
-        homeViewModel = HomeViewModel()
+        viewModel = EditListViewModel(dataes: [Data(),Data(),Data()])
         subscription = .init()
     }
 
@@ -36,38 +37,35 @@ final class PhotoPickerTests: XCTestCase {
         // 각각의 유닛 테스트가 끝난 후 테스트 값을 처리합니다.
         // 초기 상태로 복원할 때 사용됩니다. (파일 닫기, 연결, 새로 만든 항목 제거, 트랜잭션 콜백 호출 등)
         
-        homeViewModel = nil
+        viewModel = nil
         subscription = nil
     }
 
-    /*
-     
-     1. 앞에 test를 붙이고 테스트를 할 클래스 이름을 적어준다.
-      
-     2. 테스트를 할 상황에 대해 설명한다.
+    func test_tapCrop_선택된데이터_방출() {
+        
+        let data = viewModel.dataes
+        
+        let tapCrop = PassthroughSubject<Void,Never>()
+        let tapRotate = PassthroughSubject<Void,Never>()
+        
+        let input = EditListViewModel.Input(tapCrop: tapCrop.eraseToAnyPublisher(), tapRotate: tapRotate.eraseToAnyPublisher())
+        
+        input.index.send(2)
+        
+        let selectedItem = data[2]
 
-     3. 예상되는 결과를 적어준다.
-     
-     */
-    
-    func homeViewModel_NavigateButtonTap_ShouldReturnOne() {
+        let output = viewModel.transform(input: input)
         
-        let tapNavigate = PassthroughSubject<Void,Never>()
+        tapCrop.send(())
         
-        let input = HomeViewModel.Input(tapNavigateButton: tapNavigate.eraseToAnyPublisher())
+        // 선택된 데이터다 index2번을 가리키고 있어야함
         
-        let output = homeViewModel.transform(input: input)
+        output.selelctedData.sink { data in
+            
+            XCTAssertEqual(data, selectedItem)
+            
+        }.store(in: &subscription)
         
-        
-        var count: Int = 0
-        
-        output.navigateToPhotoPicker
-            .sink(receiveValue: {  count += 1 })
-            .store(in: &subscription)
-        
-        tapNavigate.send(())
-        
-        XCTAssertEqual(count, 1)
     }
 
 }

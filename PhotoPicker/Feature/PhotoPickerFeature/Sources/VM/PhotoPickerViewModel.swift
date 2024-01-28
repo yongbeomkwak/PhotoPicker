@@ -13,16 +13,17 @@ final class PhotoPickerViewModel : ViewModelType {
     
     var subscription: Set<AnyCancellable> = .init()
     
+    
     struct Input {
         
         let fetchData : PassthroughSubject<[Data?], Never> = .init()
         let tapItem: PassthroughSubject<Int, Never> = .init()
-        
     }
     
     struct Output {
         let dataSource : CurrentValueSubject<[ImageEntity], Never>
         let selectedItems: CurrentValueSubject<[(id:Int,mappingIndex:Int)], Never> //(id, mappingIndex: selectedItems -> dataSource
+        let finalItems: CurrentValueSubject<[Data?], Never>
     }
 
     
@@ -36,6 +37,8 @@ final class PhotoPickerViewModel : ViewModelType {
         var outputDataSourceSubject = CurrentValueSubject<[ImageEntity], Never>([])
         
         var outputSelectedItemsSubject = CurrentValueSubject<[(id:Int,mappingIndex:Int)],Never>([])
+        
+        var outputfinalItemsSubject = CurrentValueSubject<[Data?],Never>([])
         
       
         input.fetchData.sink(receiveValue: {
@@ -52,18 +55,17 @@ final class PhotoPickerViewModel : ViewModelType {
                 return data
             }
             
-            
+            outputSelectedItemsSubject.send([])
             outputDataSourceSubject.send( [ImageEntity(index: 0, id: -1)] + convertedResult )
             
         })
         .store(in: &subscription)
         
         input.tapItem
-            .combineLatest(outputDataSourceSubject.eraseToAnyPublisher(), outputSelectedItemsSubject.eraseToAnyPublisher())
-            .sink(receiveValue: { (index: Int, data: [ImageEntity], selectedItems: [(id:Int,mappingIndex:Int)]) in
+            .sink(receiveValue: { (index: Int) in
                 
-                var data = data
-                var selectedItems = selectedItems
+                var data = outputDataSourceSubject.value
+                var selectedItems = outputSelectedItemsSubject.value
                 
                 
                 if data[index].isSelected {
@@ -91,8 +93,17 @@ final class PhotoPickerViewModel : ViewModelType {
                 
                 
                 // 갱신
+                
+                
+                var result: [Data?] = []
+                
+                for selectedItem in selectedItems {
+                    result.append(data[selectedItem.mappingIndex].image)
+                }
+                
                 outputSelectedItemsSubject.send(selectedItems)
                 outputDataSourceSubject.send(data)
+                outputfinalItemsSubject.send(result)
                 
                 
             })
@@ -100,8 +111,11 @@ final class PhotoPickerViewModel : ViewModelType {
         
         
         
+        
         return Output(
             dataSource: outputDataSourceSubject,
-            selectedItems: outputSelectedItemsSubject)
+            selectedItems: outputSelectedItemsSubject,
+            finalItems: outputfinalItemsSubject
+        )
     }
 }

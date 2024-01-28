@@ -9,13 +9,25 @@ import Foundation
 
 
 extension PhotoPickerViewController : NavigationBarViewDelegate {
+    func tapCenterButton() {
+        
+        let vc = AlbumPickerVIewController()
+        
+        vc.modalPresentationStyle  = .formSheet
+
+        vc.delegate = self 
+        self.present(vc, animated: true)
+        
+    }
+    
     
     func tapLeftButton() {
         self.navigationController?.popViewController(animated: true)
     }
     
     func tapRightButton() {
-        // TODO: 데이터 밖으로 
+        delegate?.complete(data: output.finalItems.value)
+        self.navigationController?.popViewController(animated: true)
     }
     
     

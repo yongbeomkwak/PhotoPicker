@@ -9,15 +9,23 @@ import UIKit
 import Combine
 import Photos
 
-class PhotoPickerViewController: UIViewController {
 
+protocol PhotoPickerViewControllerDelegate : AnyObject {
+    func complete(data: [Data?])
+}
+
+
+class PhotoPickerViewController: UIViewController{
     
+    weak var delegate: PhotoPickerViewControllerDelegate?
+    
+    let editListComponent: EditListComponent
     private let viewModel : PhotoPickerViewModel!
     public var input : PhotoPickerViewModel.Input!
     public var output: PhotoPickerViewModel.Output!
     var subscription: Set<AnyCancellable> = .init()
     
-    private var navigationBarView: NavigationBarView = {
+     var navigationBarView: NavigationBarView = {
         
         let view = NavigationBarView(frame: .zero, title: "최근 항목", mode: .photoPicker)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -59,8 +67,9 @@ class PhotoPickerViewController: UIViewController {
         
     } ()
     
-    init(viewModel: PhotoPickerViewModel) {
+    init(viewModel: PhotoPickerViewModel,editListComponent: EditListComponent) {
         self.viewModel = viewModel
+        self.editListComponent = editListComponent
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -75,15 +84,17 @@ class PhotoPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         configureCommonUI()
         addSubviews()
         setLayout()
         bindInput()
         requestPhotoLibraryPermission()
         PHPhotoLibrary.shared().register(self)
+        
+        let vc = AlbumPickerVIewController()
 
-        // Do any additional setup after loading the view.
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -122,11 +133,12 @@ extension PhotoPickerViewController {
         collectionView.setBottom(anchor: self.bottomEditButtonContainerView.topAnchor, constant: .zero)
         
 
-       
+        bottomEditButtonContainerView.delegate = self
         collectionView.dataSource = self
         collectionView.delegate = self
 
     }
+    
     
     func bindInput() {
         input = PhotoPickerViewModel.Input()

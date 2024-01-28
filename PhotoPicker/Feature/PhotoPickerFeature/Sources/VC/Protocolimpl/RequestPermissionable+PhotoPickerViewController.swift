@@ -22,11 +22,12 @@ extension PhotoPickerViewController : RequestPermissionable {
             self.present(camera, animated: true, completion: nil)
     }
     
+    
     func showPhotoLibrary() {
         
          let getSortDescriptors = [
                NSSortDescriptor(key: "creationDate", ascending: false),
-               NSSortDescriptor(key: "modificationDate", ascending: false)
+               
            ] // 최근 항목
         
         let fetchOptions = PHFetchOptions()
