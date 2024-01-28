@@ -150,23 +150,23 @@ extension HomeViewController {
         
         
         output.dataSource.sink { [weak self] data in
-            
             guard let self else {return}
-            
-            
             self.collectionView.reloadData()
-            
         }
         .store(in: &subscription)
         
         
-        NotificationCenter.default.addObserver(forName: .passFinalData, object: nil, queue: nil) { notification in
-            
-            let data = notification.object as! [Data?]
-            
-            input.fetchData.send(data)
-        }
+        // 편집리스트에서 결과 한번에 가져오기 
+        NotificationCenter.default
+            .publisher(for: .passFinalData,object: nil)
+            .sink { notification in
+                let data = notification.object as! [Data?]
+                
+                input.fetchData.send(data)
+            }
+            .store(in: &subscription)
         
+
     }
     
 }

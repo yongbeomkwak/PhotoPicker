@@ -30,8 +30,6 @@ final class HomeViewModel : ViewModelType {
     
     func transform(input: Input) -> Output {
     
-        
-        
         let outputNavigateSubject = PassthroughSubject<Void,Never>()
         var outputDataSourceSubject = CurrentValueSubject<[Data?], Never>([])
         
@@ -43,7 +41,6 @@ final class HomeViewModel : ViewModelType {
         input.fetchData.sink(receiveValue: {
         
             outputDataSourceSubject.send( $0 )
-            
         })
         .store(in: &subscription)
         
