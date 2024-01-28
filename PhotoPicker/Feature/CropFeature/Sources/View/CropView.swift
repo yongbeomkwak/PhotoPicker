@@ -49,7 +49,7 @@ public class CropView: UIView {
         
         addSubviews()
         setLayout()
-        
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -60,7 +60,7 @@ public class CropView: UIView {
         
         self.addSubviews(topLineView,leftLineView,bottomLineView,rightLineView)
 
-        isUserInteractionEnabled = false
+        self.isUserInteractionEnabled = true
         backgroundColor = .clear
         topLineView.alpha = 1
         leftLineView.alpha = 1

@@ -75,7 +75,9 @@ class CropPickerView: UIView {
         self.imageView.image = image
         addSubviews()
         setLayout()
-        
+        bindGesture()
+     
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,7 +89,8 @@ class CropPickerView: UIView {
 extension CropPickerView {
     
     func addSubviews() {
-        self.addSubviews(imageView,cropView,leftTopButton,leftBottomButton,rightTopButton,rightBottomButton)
+        self.addSubviews(imageView,cropView)
+        self.cropView.addSubviews(leftTopButton,leftBottomButton,rightTopButton,rightBottomButton)
     }
     
     func setLayout() {
@@ -119,6 +122,24 @@ extension CropPickerView {
         
     }
     
+    
+    func bindGesture() {
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
+        
+        cropView.addGestureRecognizer(panGesture)
+        
+    }
+    
+    @objc private func handleGesture(_ sender: UIPanGestureRecognizer) {
+        
+        let translation = sender.translation(in: self.cropView) // translation에 움직인 위치를 저장한다.
+        // sender의 view는 sender가 바라보고 있는 circleView이다. 드래그로 이동한 만큼 circleView를 이동시킨다.
+            sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
+        sender.setTranslation(.zero, in: self) // 0으로 움직인 값을 초기화 시켜준다.
+        
+    }
+   
 
 
     
