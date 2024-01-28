@@ -14,7 +14,7 @@ class CircleButton: UIButton {
         super.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         self.backgroundColor = .white
         self.layer.cornerRadius = 15
-        self.clipsToBounds = true
+        self.clipsToBounds = false
     }
        
    required init?(coder aDecoder: NSCoder) {

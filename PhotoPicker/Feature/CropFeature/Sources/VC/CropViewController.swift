@@ -71,8 +71,6 @@ extension CropViewController {
         let image = UIImage(data: viewModel.data!)!
         
         let size = configureImageviewSize(image: image)
-        
-        DEBUG_LOG("ggg: \(size)")
         let (width,height) = (size.width,size.height)
         
         

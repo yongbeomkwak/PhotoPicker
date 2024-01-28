@@ -72,6 +72,7 @@ class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCommonUI()
@@ -157,6 +158,15 @@ extension HomeViewController {
             
         }
         .store(in: &subscription)
+        
+        
+        NotificationCenter.default.addObserver(forName: .passFinalData, object: nil, queue: nil) { notification in
+            
+            let data = notification.object as! [Data?]
+            
+            input.fetchData.send(data)
+        }
+        
     }
     
 }
@@ -167,3 +177,4 @@ extension HomeViewController : PhotoPickerViewControllerDelegate {
     }
     
 }
+

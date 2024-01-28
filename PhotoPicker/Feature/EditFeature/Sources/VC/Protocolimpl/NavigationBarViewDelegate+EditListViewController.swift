@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import Combine
 
 extension EditListViewController : NavigationBarViewDelegate {
     func tapCenterButton() {
@@ -19,7 +19,12 @@ extension EditListViewController : NavigationBarViewDelegate {
     }
     
     func tapRightButton() {
-        //TODO: 완료 
+        
+        NotificationCenter.default
+            .post(name: .passFinalData, object: viewModel.dataes)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        
     }
     
     
