@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>앨범접근</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>게시글이나 프로필을 업로드하거나 사진을 저장할 때 사용합니다.</string>
 	<key>NSCameraUsageDescription</key>

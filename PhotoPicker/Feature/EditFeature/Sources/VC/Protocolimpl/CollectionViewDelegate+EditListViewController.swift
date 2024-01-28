@@ -58,7 +58,7 @@ extension EditListViewController: UIScrollViewDelegate {
     public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let i = Int(scrollView.contentOffset.x / APP_WIDTH())
         
-        self.navigationBarView.changeTitle("\(i+1)/\(viewModel.dataes.count)")
+        self.navigationBarView.changeTitle("\(i+1)/\(viewModel.dataes.count)",mode: .edit)
         self.carouselLabel.text = "\(i+1)"
         self.input.index.send(i)
     }

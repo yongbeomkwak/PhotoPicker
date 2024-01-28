@@ -55,18 +55,17 @@ final class PhotoPickerViewModel : ViewModelType {
                 return data
             }
             
-            
+            outputSelectedItemsSubject.send([])
             outputDataSourceSubject.send( [ImageEntity(index: 0, id: -1)] + convertedResult )
             
         })
         .store(in: &subscription)
         
         input.tapItem
-            .combineLatest(outputDataSourceSubject.eraseToAnyPublisher(), outputSelectedItemsSubject.eraseToAnyPublisher())
-            .sink(receiveValue: { (index: Int, data: [ImageEntity], selectedItems: [(id:Int,mappingIndex:Int)]) in
+            .sink(receiveValue: { (index: Int) in
                 
-                var data = data
-                var selectedItems = selectedItems
+                var data = outputDataSourceSubject.value
+                var selectedItems = outputSelectedItemsSubject.value
                 
                 
                 if data[index].isSelected {

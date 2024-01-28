@@ -15,7 +15,7 @@ protocol PhotoPickerViewControllerDelegate : AnyObject {
 }
 
 
-class PhotoPickerViewController: UIViewController {
+class PhotoPickerViewController: UIViewController{
     
     weak var delegate: PhotoPickerViewControllerDelegate?
     
@@ -25,7 +25,7 @@ class PhotoPickerViewController: UIViewController {
     public var output: PhotoPickerViewModel.Output!
     var subscription: Set<AnyCancellable> = .init()
     
-    private var navigationBarView: NavigationBarView = {
+     var navigationBarView: NavigationBarView = {
         
         let view = NavigationBarView(frame: .zero, title: "최근 항목", mode: .photoPicker)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -84,15 +84,17 @@ class PhotoPickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         configureCommonUI()
         addSubviews()
         setLayout()
         bindInput()
         requestPhotoLibraryPermission()
         PHPhotoLibrary.shared().register(self)
+        
+        let vc = AlbumPickerVIewController()
 
-        // Do any additional setup after loading the view.
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -136,6 +138,7 @@ extension PhotoPickerViewController {
         collectionView.delegate = self
 
     }
+    
     
     func bindInput() {
         input = PhotoPickerViewModel.Input()

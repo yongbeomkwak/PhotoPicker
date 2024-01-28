@@ -65,6 +65,9 @@
 		B05738622B6509A60089267C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738612B6509A60089267C /* CircleButton.swift */; };
 		B05738662B6529F50089267C /* EditListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738652B6529F50089267C /* EditListViewModelTests.swift */; };
 		B057386A2B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */; };
+		B057386C2B660A660089267C /* AlbumInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057386B2B660A660089267C /* AlbumInfo.swift */; };
+		B05738702B660F8C0089267C /* AlbumPickerVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */; };
+		B05738722B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +142,9 @@
 		B05738612B6509A60089267C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		B05738652B6529F50089267C /* EditListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewModelTests.swift; sourceTree = "<group>"; };
 		B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionViewDelegate+HomeViewController.swift"; sourceTree = "<group>"; };
+		B057386B2B660A660089267C /* AlbumInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfo.swift; sourceTree = "<group>"; };
+		B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPickerVIewController.swift; sourceTree = "<group>"; };
+		B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +392,7 @@
 			children = (
 				B057380F2B623BC00089267C /* Protocolimpl */,
 				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
+				B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -440,6 +447,7 @@
 				B05738102B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift */,
 				B05738172B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift */,
 				B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */,
+				B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */,
 			);
 			path = Protocolimpl;
 			sourceTree = "<group>";
@@ -448,6 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				B05738132B625D930089267C /* ImageEntity.swift */,
+				B057386B2B660A660089267C /* AlbumInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -721,6 +730,7 @@
 				B05738342B63ADD10089267C /* EditListCollectionViewCell.swift in Sources */,
 				B05737BA2B5FB0480089267C /* UIView+Extension.swift in Sources */,
 				B05738222B638A440089267C /* EditListFactory.swift in Sources */,
+				B057386C2B660A660089267C /* AlbumInfo.swift in Sources */,
 				B05738362B63D3210089267C /* CropViewController.swift in Sources */,
 				B05737D22B60EC5A0089267C /* HomeFactory.swift in Sources */,
 				B05737BD2B5FB6370089267C /* UIViewController+Extension.swift in Sources */,
@@ -732,6 +742,7 @@
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */,
+				B05738702B660F8C0089267C /* AlbumPickerVIewController.swift in Sources */,
 				B05738272B638AFA0089267C /* EditListFactoryImpl.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
@@ -743,6 +754,7 @@
 				B057386A2B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift in Sources */,
 				B05738382B63D3720089267C /* CropViewModel.swift in Sources */,
 				B05737D82B60ED940089267C /* HomeFeatureComponent.swift in Sources */,
+				B05738722B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift in Sources */,
 				B057380E2B620F740089267C /* PhotoPickerCollectionViewCell.swift in Sources */,
 				B057381A2B6292860089267C /* PHAsset+Extension.swift in Sources */,
 				B05737CA2B60A19F0089267C /* ViewModelType.swift in Sources */,

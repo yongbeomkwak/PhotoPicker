@@ -47,6 +47,7 @@ public enum NavigationMode {
 protocol NavigationBarViewDelegate : AnyObject {
     
     func tapLeftButton()
+    func tapCenterButton()
     func tapRightButton()
     
 }
@@ -68,16 +69,15 @@ class NavigationBarView: UIView {
         
     }()
     
-    private var titleLabel: UILabel = {
+    private var titleButton: UIButton = {
         
-        let label = UILabel()
+        let view = UIButton()
+        view.setTitle(title: "", ofSize: 17)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.titleLabel?.textAlignment = .center
         
-        label.font = .systemFont(ofSize: 17, weight: .bold)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
         
-        
-        return label
+        return view
     }()
     
     private var rightButton: UIButton = {
@@ -100,7 +100,7 @@ class NavigationBarView: UIView {
         
     }()
     
-    private var mode: NavigationMode = .photoPicker
+    private var mode: NavigationMode!
     
 
     override init(frame: CGRect) {
@@ -115,7 +115,7 @@ class NavigationBarView: UIView {
         addSubviews()
         setLayout()
         bindEvent()
-        changeTitle(title)
+        changeTitle(title,mode: mode)
         
     }
     
@@ -132,7 +132,7 @@ class NavigationBarView: UIView {
 extension NavigationBarView {
     
     private func addSubviews() {
-        self.addSubviews(leftButton,titleLabel,rightLabel,rightButton)
+        self.addSubviews(leftButton,titleButton,rightLabel,rightButton)
     }
     
     private func setLayout() {
@@ -148,8 +148,8 @@ extension NavigationBarView {
                 
             rightLabel.textColor = .setColor(.primary)
                 rightLabel.font = .systemFont(ofSize: 15, weight: .bold)
-                
-                titleLabel.textColor = mode == .photoPicker ? .setColor(.secondary) : .white
+            
+           
                 
             case .cut:
                 leftButton.setImage(.setImage(.xmark), for: .normal)
@@ -157,8 +157,16 @@ extension NavigationBarView {
                 
                 rightButton.setImage(.setImage(.check), for: .normal)
                 rightButton.tintColor = .white
-            
-            
+
+            case .none:
+                DEBUG_LOG("")
+        }
+        
+        if mode == .photoPicker {
+            titleButton.semanticContentAttribute = .forceRightToLeft
+            titleButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -10)
+            titleButton.setImage(UIImage(systemName:"arrowtriangle.down.fill"),for: .normal)
+            titleButton.tintColor = .white
         }
         
         leftButton.setWidth(30)
@@ -166,9 +174,9 @@ extension NavigationBarView {
         leftButton.setLeft(anchor: self.leftAnchor, constant: 20)
         leftButton.setCenterY(view: self, constant: 0)
         
-        titleLabel.setLeft(anchor: self.leftAnchor, constant: 0)
-        titleLabel.setRight(anchor: self.rightAnchor, constant: 0)
-        titleLabel.setCenterY(view: self,constant: 0)
+        titleButton.setLeft(anchor: self.leftButton.rightAnchor, constant: 0)
+        titleButton.setRight(anchor: self.rightButton.leftAnchor, constant: 0)
+        titleButton.setCenterY(view: self,constant: 0)
        
 
         
@@ -205,12 +213,25 @@ extension NavigationBarView {
                 
             })
             .store(in: &subscription)
+        
+        titleButton.tapPublisher
+            .sink(receiveValue: { [weak self] in
+                
+                guard let self else {return}
+                
+                self.deleagte?.tapCenterButton()
+                
+            })
+            .store(in: &subscription)
+        
 
         
     }
     
-    public func changeTitle(_ str: String) {
-        self.titleLabel.text = str
+    public func changeTitle(_ str: String, mode : NavigationMode) {
+        
+        
+        titleButton.setTitle(title: str, ofSize: 17, weight: .bold, textColor: mode == .photoPicker ? .setColor(.secondary) : .white, for: .normal)
     }
     
     public func changeCountLabel(_ str: String) {

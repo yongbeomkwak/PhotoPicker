@@ -122,6 +122,10 @@ extension CropViewController {
 }
 
 extension CropViewController : NavigationBarViewDelegate {
+    func tapCenterButton() {
+        
+    }
+    
     func tapLeftButton() {
         self.dismiss(animated: false)
     }

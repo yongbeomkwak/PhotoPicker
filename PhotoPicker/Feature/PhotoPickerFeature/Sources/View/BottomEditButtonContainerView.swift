@@ -22,10 +22,10 @@ class BottomEditButtonContainerView: UIView {
         
         let image = UIImage(systemName: "wand.and.rays")!
         
-        let flipedImage = image.flipHorizontally()! // 이미지 뒤집기
+        let flipedImage = image.flipHorizontally()!.withRenderingMode(.alwaysTemplate) // 이미지 뒤집기
         
         button.setImage(flipedImage, for: .normal)
-       
+        button.tintColor = .setColor(.secondary)
         button.setTitle(title: "편집", ofSize: 16, weight: .light,textColor: .setColor(.secondary))
         button.setTitle(title: "편집", ofSize: 16,textColor: .lightGray ,for: .disabled)
         button.setInsets(forContentPadding: .zero, imageTitlePadding: 5)

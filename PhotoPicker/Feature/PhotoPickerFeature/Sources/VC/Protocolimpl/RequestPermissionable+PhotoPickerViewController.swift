@@ -22,6 +22,7 @@ extension PhotoPickerViewController : RequestPermissionable {
             self.present(camera, animated: true, completion: nil)
     }
     
+    
     func showPhotoLibrary() {
         
          let getSortDescriptors = [

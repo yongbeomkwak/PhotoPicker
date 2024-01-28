@@ -219,7 +219,7 @@ extension EditListViewController {
                     return
                 }
                 
-                cell.rotate(viewModel.rotateState[index],index: index)
+                cell.rotate(viewModel.rotateState[index],index: index )
             
         }
         .store(in: &subscription)

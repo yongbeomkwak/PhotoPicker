@@ -9,6 +9,10 @@ import Foundation
 
 
 extension EditListViewController : NavigationBarViewDelegate {
+    func tapCenterButton() {
+        
+    }
+    
     
     func tapLeftButton() {
         self.navigationController?.popViewController(animated: true)
