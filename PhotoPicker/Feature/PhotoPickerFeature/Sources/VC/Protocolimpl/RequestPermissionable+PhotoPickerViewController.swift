@@ -26,7 +26,7 @@ extension PhotoPickerViewController : RequestPermissionable {
         
          let getSortDescriptors = [
                NSSortDescriptor(key: "creationDate", ascending: false),
-               NSSortDescriptor(key: "modificationDate", ascending: false)
+               
            ] // 최근 항목
         
         let fetchOptions = PHFetchOptions()

@@ -19,11 +19,23 @@ extension EditListViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        DEBUG_LOG("LLL \(indexPath) \(viewModel.rotateState[indexPath.row])")
-        cell.prepare(viewModel.dataes[indexPath.row],viewModel.rotateState[indexPath.row])
-        cell.clipsToBounds = true 
+        let index = indexPath.row
+        
+        cell.prepare(viewModel.dataes[index],viewModel.rotateState[index],index: index)
+        cell.clipsToBounds = true
+        cell.delegate = self
         
         return cell
+    }
+    
+    
+}
+
+extension EditListViewController : EditListCollectionViewCellDelegate {
+    func syncData(data: Data?, index: Int) {
+        
+        viewModel.dataes[index] = data
+        
     }
     
     

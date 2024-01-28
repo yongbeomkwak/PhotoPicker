@@ -7,9 +7,16 @@
 
 import UIKit
 
+protocol EditListCollectionViewCellDelegate: AnyObject {
+    func syncData(data: Data?, index: Int)
+}
+
 class EditListCollectionViewCell: UICollectionViewCell {
     
+    weak var delegate: EditListCollectionViewCellDelegate?
+    
     static let id = "EditListCollectionViewCell"
+    
     
     let imageView: UIImageView = {
         
@@ -58,36 +65,20 @@ extension EditListCollectionViewCell {
         
     }
     
-    func prepare(_ data: Data?, _ state: RotateState) {
+    func prepare(_ data: Data?, _ state: RotateState, index: Int) {
         
         let image = UIImage(data: data!)
         
         self.imageView.image = image
         
-        /*세로모드
-         
-         width , height
-         
-         가로모드
-         
-         height -> width -> APP_WIDHT()
-         width -> heigt -> ?
-         
-         
-         self.bounds.height : APP_WIDHT = self.bounds.width : ?
-         
-         ? = APP_WIDHT * self.bounds.widht / self.bounds.height
-         
-        */
-        
-        rotate(state)
+        rotate(state, index: index)
         
         
         DEBUG_LOG("frame: \(self.bounds)")
         DEBUG_LOG("frame: \(imageView.frame)")
     }
     
-    func rotate(_ state: RotateState) {
+    func rotate(_ state: RotateState, index: Int) {
         
         let image = imageView.image
         
@@ -103,6 +94,8 @@ extension EditListCollectionViewCell {
         }
         
         imageView.image = image!.rotate(degrees: degree)
+        
+        delegate?.syncData(data:  imageView.image!.pngData(), index: index)
     }
     
 }
