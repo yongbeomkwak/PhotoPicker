@@ -24,7 +24,6 @@ class PhotoPickerCollectionViewCell: UICollectionViewCell {
         
     }()
     
-    private let overlayLayer = CALayer()
     
     var cameraImageView: UIImageView = {
         
@@ -32,7 +31,6 @@ class PhotoPickerCollectionViewCell: UICollectionViewCell {
         
         let imageView = UIImageView(image: img)
         
-       
         imageView.contentMode = .scaleAspectFill
         imageView.tintColor = .white
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -103,13 +101,12 @@ extension PhotoPickerCollectionViewCell {
             imageView.image = nil
         }
         
-        
         if model.id == -1 { // 카메라 버튼
             cameraImageView.isHidden = false
             self.contentView.backgroundColor = colorFromRGB("CFD3D9")
             countLabel.isHidden = true
             imageView.isHidden = true
-           
+            
             return
         } else {
             cameraImageView.isHidden = true
@@ -120,18 +117,14 @@ extension PhotoPickerCollectionViewCell {
         }
         
         
-        if model.isSelected {
-            selected(model)
-        } else {
-            deSelected(model)
-        }
+        model.isSelected ? selected(model) : deSelected(model)
+        
         
     }
     
     
     func selected(_ model: ImageEntity) {
         
-        overlayLayer.isHidden = false
         imageView.layer.borderColor = UIColor.setColor(.primary).cgColor
         countLabel.layer.borderColor = UIColor.setColor(.primary).cgColor
         countLabel.backgroundColor = .setColor(.primary)
@@ -142,18 +135,10 @@ extension PhotoPickerCollectionViewCell {
     
     func deSelected(_ mode: ImageEntity) {
         
-        overlayLayer.isHidden = true
         imageView.layer.borderColor = UIColor.clear.cgColor
         countLabel.layer.borderColor = UIColor.white.cgColor
         countLabel.backgroundColor = .clear
         countLabel.text = ""
       
-    }
-    
-    private func setupOverlayLayer() { // 어두운 효과 오버레이
-            overlayLayer.backgroundColor = UIColor.black.cgColor
-            overlayLayer.opacity = 0.5 // 어두움의 정도를 조절할 수 있습니다.
-            overlayLayer.frame = bounds
-            imageView.layer.addSublayer(overlayLayer)
     }
 }

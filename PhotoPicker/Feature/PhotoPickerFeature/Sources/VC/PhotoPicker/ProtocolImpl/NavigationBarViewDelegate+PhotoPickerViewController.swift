@@ -10,17 +10,13 @@ import Foundation
 
 extension PhotoPickerViewController : NavigationBarViewDelegate {
     func tapCenterButton() {
-        
         let vc = AlbumPickerVIewController()
-        
         vc.modalPresentationStyle  = .formSheet
-
         vc.delegate = self 
         self.present(vc, animated: true)
         
     }
-    
-    
+
     func tapLeftButton() {
         self.navigationController?.popViewController(animated: true)
     }

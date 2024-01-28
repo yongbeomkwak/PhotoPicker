@@ -76,16 +76,16 @@ extension AlbumPickerVIewController {
     
     public func getAlbums(completion: @escaping ([AlbumInfo]) -> Void) {
         
-        
         var allAlbums = [AlbumInfo]()
         defer {
             completion(allAlbums)
         }
+        
         let getSortDescriptors = [
             NSSortDescriptor(key: "creationDate", ascending: false),
             
-        ] // 최근 항목
-        //PHFetchOptions: predicate를 이용하여 sorting, mediaType 등을 쿼리하는데 사용
+        ]
+
         let fetchOptions = PHFetchOptions()
         fetchOptions.sortDescriptors = getSortDescriptors
         let standardAlbum = PHAsset.fetchAssets(with: fetchOptions)
@@ -97,34 +97,30 @@ extension AlbumPickerVIewController {
             )
         )
         
-        
-
         let userAlbums = PHAssetCollection.fetchAssetCollections(with: .album, subtype: .albumRegular, options: PHFetchOptions())
         
        
         guard 0 < userAlbums.count else { return }
         userAlbums.enumerateObjects { userAlbum, index, pointer in
             
-            DEBUG_LOG("Title: \(userAlbum.localizedTitle)")
-            
-          guard index <= userAlbums.count - 1 else {
-            pointer.pointee = true
-            return
-          }
+              guard index <= userAlbums.count - 1 else {
+                pointer.pointee = true
+                return
+              }
 
             let fetchOptions = PHFetchOptions()
             fetchOptions.sortDescriptors = getSortDescriptors
             let album = PHAsset.fetchAssets(in: userAlbum, options: fetchOptions)
-            allAlbums.append(
-              .init(
+            allAlbums.append(.init(
                 id: userAlbum.localIdentifier,
                 name: userAlbum.localizedTitle ?? "",
                 album: album
               )
             )
-          
+            
         }
       }
+    
 }
  
 extension AlbumPickerVIewController : UIPickerViewDelegate, UIPickerViewDataSource {

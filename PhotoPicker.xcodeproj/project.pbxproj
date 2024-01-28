@@ -320,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				B05738782B665CD30089267C /* Home */,
-				B05738682B6534F70089267C /* Protocol+HomeVC */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -392,9 +391,8 @@
 		B05737F32B6114AC0089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B057380F2B623BC00089267C /* Protocolimpl */,
-				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
-				B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */,
+				B057387D2B6663EA0089267C /* AlbumPicker */,
+				B057387C2B6663DB0089267C /* PhotoPicker */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -442,7 +440,7 @@
 			path = FlowLayout;
 			sourceTree = "<group>";
 		};
-		B057380F2B623BC00089267C /* Protocolimpl */ = {
+		B057380F2B623BC00089267C /* ProtocolImpl */ = {
 			isa = PBXGroup;
 			children = (
 				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
@@ -451,7 +449,7 @@
 				B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */,
 				B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */,
 			);
-			path = Protocolimpl;
+			path = ProtocolImpl;
 			sourceTree = "<group>";
 		};
 		B05738122B625C2C0089267C /* Model */ = {
@@ -598,12 +596,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B05738682B6534F70089267C /* Protocol+HomeVC */ = {
+		B05738682B6534F70089267C /* ProtocolImpl */ = {
 			isa = PBXGroup;
 			children = (
 				B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */,
 			);
-			path = "Protocol+HomeVC";
+			path = ProtocolImpl;
 			sourceTree = "<group>";
 		};
 		B05738752B66424C0089267C /* Extensions */ = {
@@ -618,6 +616,7 @@
 			isa = PBXGroup;
 			children = (
 				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
+				B05738682B6534F70089267C /* ProtocolImpl */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -628,6 +627,23 @@
 				B057387A2B665D7D0089267C /* HomeCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B057387C2B6663DB0089267C /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B057380F2B623BC00089267C /* ProtocolImpl */,
+				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
+			);
+			path = PhotoPicker;
+			sourceTree = "<group>";
+		};
+		B057387D2B6663EA0089267C /* AlbumPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */,
+			);
+			path = AlbumPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
