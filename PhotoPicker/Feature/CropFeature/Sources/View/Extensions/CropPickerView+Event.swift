@@ -17,9 +17,5 @@ extension CropPickerView {
         sender.setTranslation(.zero, in: self)
     }
    
-    @objc func leftTopButtonDrag(_ sender: UIButton) {
-    
-        
-        DEBUG_LOG("TTT")
-    }
+
 }

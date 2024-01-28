@@ -58,9 +58,7 @@
 		B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738412B63D4360089267C /* CropFactoryImpl.swift */; };
 		B05738442B63D48D0089267C /* CropComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738432B63D48D0089267C /* CropComponent.swift */; };
 		B05738472B63E8A00089267C /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738462B63E8A00089267C /* CropView.swift */; };
-		B057384B2B63F1200089267C /* UIBezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */; };
 		B057384D2B64AC510089267C /* PhotoPickerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */; };
-		B057385E2B64F4760089267C /* UIImageVIew+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */; };
 		B05738602B6501410089267C /* CropPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057385F2B6501410089267C /* CropPickerView.swift */; };
 		B05738622B6509A60089267C /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738612B6509A60089267C /* CircleButton.swift */; };
 		B05738662B6529F50089267C /* EditListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738652B6529F50089267C /* EditListViewModelTests.swift */; };
@@ -70,6 +68,8 @@
 		B05738722B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */; };
 		B05738742B6642150089267C /* CropPickerView+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738732B6642150089267C /* CropPickerView+Event.swift */; };
 		B05738772B664A070089267C /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738762B664A070089267C /* NotificationName+Extension.swift */; };
+		B057387B2B665D7D0089267C /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057387A2B665D7D0089267C /* HomeCollectionViewCell.swift */; };
+		B05738802B666B540089267C /* RotateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057387F2B666B540089267C /* RotateState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,9 +137,7 @@
 		B05738412B63D4360089267C /* CropFactoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropFactoryImpl.swift; sourceTree = "<group>"; };
 		B05738432B63D48D0089267C /* CropComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropComponent.swift; sourceTree = "<group>"; };
 		B05738462B63E8A00089267C /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
-		B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBezierPath+Extension.swift"; sourceTree = "<group>"; };
 		B057384C2B64AC510089267C /* PhotoPickerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewModelTests.swift; sourceTree = "<group>"; };
-		B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageVIew+Extension.swift"; sourceTree = "<group>"; };
 		B057385F2B6501410089267C /* CropPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropPickerView.swift; sourceTree = "<group>"; };
 		B05738612B6509A60089267C /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		B05738652B6529F50089267C /* EditListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditListViewModelTests.swift; sourceTree = "<group>"; };
@@ -149,6 +147,8 @@
 		B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift"; sourceTree = "<group>"; };
 		B05738732B6642150089267C /* CropPickerView+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropPickerView+Event.swift"; sourceTree = "<group>"; };
 		B05738762B664A070089267C /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
+		B057387A2B665D7D0089267C /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B057387F2B666B540089267C /* RotateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,6 +233,7 @@
 		B05737B72B5FAFA00089267C /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B05737DC2B60F1B40089267C /* Combine */,
 				B05737C82B60A1800089267C /* Protocols */,
 				B05737BE2B5FEABA0089267C /* Utils */,
 				B05737B82B5FB0310089267C /* Extensions */,
@@ -248,8 +249,6 @@
 				B05737C42B609FDF0089267C /* UIButton+Extension.swift */,
 				B05738082B615D670089267C /* UIImage+Extension.swift */,
 				B05738192B6292860089267C /* PHAsset+Extension.swift */,
-				B057384A2B63F1200089267C /* UIBezierPath+Extension.swift */,
-				B057385D2B64F4760089267C /* UIImageVIew+Extension.swift */,
 				B05738762B664A070089267C /* NotificationName+Extension.swift */,
 			);
 			path = Extensions;
@@ -284,7 +283,6 @@
 		B05737CB2B60E89E0089267C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				B05737DC2B60F1B40089267C /* Combine */,
 				B05737B72B5FAFA00089267C /* Utility */,
 			);
 			path = Shared;
@@ -312,6 +310,7 @@
 		B05737D32B60ED510089267C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B05738792B665D420089267C /* View */,
 				B05737D62B60ED790089267C /* DI */,
 				B05737D52B60ED710089267C /* VM */,
 				B05737D42B60ED640089267C /* VC */,
@@ -322,8 +321,7 @@
 		B05737D42B60ED640089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B05738682B6534F70089267C /* Protocolimpl */,
-				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
+				B05738782B665CD30089267C /* Home */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -395,9 +393,8 @@
 		B05737F32B6114AC0089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B057380F2B623BC00089267C /* Protocolimpl */,
-				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
-				B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */,
+				B057387D2B6663EA0089267C /* AlbumPicker */,
+				B057387C2B6663DB0089267C /* PhotoPicker */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -445,7 +442,7 @@
 			path = FlowLayout;
 			sourceTree = "<group>";
 		};
-		B057380F2B623BC00089267C /* Protocolimpl */ = {
+		B057380F2B623BC00089267C /* ProtocolImpl */ = {
 			isa = PBXGroup;
 			children = (
 				B05738032B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift */,
@@ -454,7 +451,7 @@
 				B057382B2B63932D0089267C /* BottomEditButtonContainerView+PhotoPickerViewController.swift */,
 				B05738712B661D500089267C /* AlbumPickerVIewControllerDelegate+PhotoPickerViewController.swift */,
 			);
-			path = Protocolimpl;
+			path = ProtocolImpl;
 			sourceTree = "<group>";
 		};
 		B05738122B625C2C0089267C /* Model */ = {
@@ -478,6 +475,8 @@
 		B057381C2B6384350089267C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B057387E2B666B460089267C /* Enum */,
+				B05738322B63ADAE0089267C /* View */,
 				B05738282B638B680089267C /* VM */,
 				B05738232B638A710089267C /* DI */,
 				B057381D2B6384400089267C /* VC */,
@@ -488,7 +487,6 @@
 		B057381D2B6384400089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B05738322B63ADAE0089267C /* View */,
 				B057382D2B6399250089267C /* Protocolimpl */,
 				B057381E2B6385170089267C /* EditListViewController.swift */,
 			);
@@ -601,12 +599,12 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		B05738682B6534F70089267C /* Protocolimpl */ = {
+		B05738682B6534F70089267C /* ProtocolImpl */ = {
 			isa = PBXGroup;
 			children = (
 				B05738692B65350C0089267C /* CollectionViewDelegate+HomeViewController.swift */,
 			);
-			path = Protocolimpl;
+			path = ProtocolImpl;
 			sourceTree = "<group>";
 		};
 		B05738752B66424C0089267C /* Extensions */ = {
@@ -615,6 +613,48 @@
 				B05738732B6642150089267C /* CropPickerView+Event.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B05738782B665CD30089267C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B05737892B5FAB1F0089267C /* HomeViewController.swift */,
+				B05738682B6534F70089267C /* ProtocolImpl */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B05738792B665D420089267C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B057387A2B665D7D0089267C /* HomeCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B057387C2B6663DB0089267C /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B057380F2B623BC00089267C /* ProtocolImpl */,
+				B05737F42B6114C50089267C /* PhotoPickerViewController.swift */,
+			);
+			path = PhotoPicker;
+			sourceTree = "<group>";
+		};
+		B057387D2B6663EA0089267C /* AlbumPicker */ = {
+			isa = PBXGroup;
+			children = (
+				B057386F2B660F8C0089267C /* AlbumPickerVIewController.swift */,
+			);
+			path = AlbumPicker;
+			sourceTree = "<group>";
+		};
+		B057387E2B666B460089267C /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				B057387F2B666B540089267C /* RotateState.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -732,7 +772,6 @@
 				B05738602B6501410089267C /* CropPickerView.swift in Sources */,
 				B057382A2B638B760089267C /* EditListViewModel.swift in Sources */,
 				B05738442B63D48D0089267C /* CropComponent.swift in Sources */,
-				B057385E2B64F4760089267C /* UIImageVIew+Extension.swift in Sources */,
 				B05738182B6263810089267C /* RequestPermissionable+PhotoPickerViewController.swift in Sources */,
 				B05737F52B6114C50089267C /* PhotoPickerViewController.swift in Sources */,
 				B05738162B62614F0089267C /* RequestPermissionable.swift in Sources */,
@@ -753,15 +792,16 @@
 				B05738622B6509A60089267C /* CircleButton.swift in Sources */,
 				B05738312B63A3210089267C /* CollectionViewDelegate+EditListViewController.swift in Sources */,
 				B05738142B625D930089267C /* ImageEntity.swift in Sources */,
-				B057384B2B63F1200089267C /* UIBezierPath+Extension.swift in Sources */,
 				B05737F02B6114350089267C /* PhotoPickerComponent.swift in Sources */,
 				B05738042B6145300089267C /* NavigationBarViewDelegate+PhotoPickerViewController.swift in Sources */,
 				B057380C2B620E370089267C /* GridCollectionViewFlowLayout.swift in Sources */,
 				B05738702B660F8C0089267C /* AlbumPickerVIewController.swift in Sources */,
 				B05738272B638AFA0089267C /* EditListFactoryImpl.swift in Sources */,
 				B05737C52B609FDF0089267C /* UIButton+Extension.swift in Sources */,
+				B057387B2B665D7D0089267C /* HomeCollectionViewCell.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
 				B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */,
+				B05738802B666B540089267C /* RotateState.swift in Sources */,
 				B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */,
 				B05738772B664A070089267C /* NotificationName+Extension.swift in Sources */,
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,

@@ -50,32 +50,20 @@ extension EditListCollectionViewCell {
     
     func setLayout() {
         
-
-//        imageView.setCenter(view: self.contentView, offset: .zero)
-//        imageView.setWidth(self.bounds.width)
-//        imageView.setHeight(self.bounds.height)
-        
         imageView.setTop(anchor: self.contentView.topAnchor, constant: .zero)
         imageView.setBottom(anchor: self.contentView.bottomAnchor, constant: .zero)
         imageView.setLeft(anchor: self.contentView.leftAnchor, constant: .zero)
         imageView.setRight(anchor: self.contentView.rightAnchor, constant: .zero)
         
         
-
-        
     }
     
     func prepare(_ data: Data?, _ state: RotateState, index: Int) {
         
         let image = UIImage(data: data!)
-        
         self.imageView.image = image
-        
         rotate(state, index: index)
         
-        
-        DEBUG_LOG("frame: \(self.bounds)")
-        DEBUG_LOG("frame: \(imageView.frame)")
     }
     
     func rotate(_ state: RotateState, index: Int) {

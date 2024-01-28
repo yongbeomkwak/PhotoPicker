@@ -72,7 +72,6 @@ class EditListViewController: UIViewController {
         button.tintColor = .white
         
         
-        
         return button
         
     }()
@@ -154,9 +153,7 @@ extension EditListViewController {
         collectionView.setRight(anchor: self.view.rightAnchor, constant: .zero)
         collectionView.setTop(anchor: self.navigationBarView.bottomAnchor, constant: 20)
         collectionView.setBottom(anchor: self.bottomContainerView.topAnchor, constant: 20)
-        collectionView.dataSource = self
-        collectionView.delegate = self
-    
+ 
         
         bottomContainerView.setLeft(anchor: self.view.leftAnchor, constant: .zero)
         bottomContainerView.setRight(anchor: self.view.rightAnchor, constant: .zero)
@@ -176,6 +173,8 @@ extension EditListViewController {
         rotateButton.setCenter(view: self.bottomContainerView, offset: .init(x: 50, y: 0))
 //            
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
     }
     
@@ -213,7 +212,6 @@ extension EditListViewController {
             
             viewModel.rotateState[index] = viewModel.rotateState[index].next()
                 
-                DEBUG_LOG(viewModel.rotateState)
             
                 guard let  cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: .zero)) as? EditListCollectionViewCell else {
                     return

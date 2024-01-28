@@ -95,8 +95,6 @@ extension CropPickerView {
     
     func setLayout() {
     
-    
-        
         imageView.setLeft(anchor: self.leftAnchor, constant: .zero)
         imageView.setRight(anchor: self.rightAnchor, constant: .zero)
         imageView.setTop(anchor: self.topAnchor, constant: .zero)
@@ -127,9 +125,6 @@ extension CropPickerView {
         
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
         cropView.addGestureRecognizer(panGesture)
-        
-        
-        leftTopButton.addTarget(self, action: #selector(leftTopButtonDrag(_:)), for: .touchDragInside)
         
         
     }

@@ -9,5 +9,6 @@ import Foundation
 
 extension Notification.Name {
     
+    // 편집화면에서 Home으로 사용할 Notification
     static let passFinalData = Notification.Name("passFinalData")
 }

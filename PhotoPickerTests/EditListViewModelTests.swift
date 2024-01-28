@@ -11,7 +11,6 @@ import Combine
 
 final class EditListViewModelTests: XCTestCase {
 
-
     /*
     
      함수 네이밍 규칙

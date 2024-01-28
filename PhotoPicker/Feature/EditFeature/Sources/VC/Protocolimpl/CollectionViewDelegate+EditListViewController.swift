@@ -31,16 +31,6 @@ extension EditListViewController : UICollectionViewDataSource {
     
 }
 
-extension EditListViewController : EditListCollectionViewCellDelegate {
-    func syncData(data: Data?, index: Int) {
-        
-        viewModel.dataes[index] = data
-        
-    }
-    
-    
-}
-
 extension EditListViewController : UICollectionViewDelegate {
    
 }
@@ -62,4 +52,11 @@ extension EditListViewController: UIScrollViewDelegate {
         self.carouselLabel.text = "\(i+1)"
         self.input.index.send(i)
     }
+}
+
+extension EditListViewController : EditListCollectionViewCellDelegate {
+    func syncData(data: Data?, index: Int) {
+        viewModel.dataes[index] = data
+    }
+
 }

@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         view.contentInset = .zero
         view.backgroundColor = .setColor(.bg)
         view.clipsToBounds = true
-        view.register(PhotoPickerCollectionViewCell.self, forCellWithReuseIdentifier: PhotoPickerCollectionViewCell.id)
+        view.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.id)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
@@ -109,9 +109,6 @@ extension HomeViewController {
         
         collectionView.setBottom(anchor: photoPickerButton.topAnchor, constant: 20)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         photoPickerButton.setCenterX(view: self.view)
         photoPickerButton.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 45)
         photoPickerButton.setLeft(anchor: self.view.safeAreaLayoutGuide.rightAnchor, constant: 20)
@@ -119,6 +116,9 @@ extension HomeViewController {
         photoPickerButton.setHeight(48)
     
    
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         
     }
     
@@ -150,23 +150,25 @@ extension HomeViewController {
         
         
         output.dataSource.sink { [weak self] data in
-            
             guard let self else {return}
-            
-            
             self.collectionView.reloadData()
-            
         }
         .store(in: &subscription)
         
         
-        NotificationCenter.default.addObserver(forName: .passFinalData, object: nil, queue: nil) { notification in
-            
-            let data = notification.object as! [Data?]
-            
-            input.fetchData.send(data)
-        }
+        // 편집리스트에서 결과 한번에 가져오기 
+        NotificationCenter.default
+            .publisher(for: .passFinalData,object: nil)
+            .sink { notification in
+                guard let data = notification.object as? [Data?] else {
+                    return
+                }
+                
+                input.fetchData.send(data)
+            }
+            .store(in: &subscription)
         
+
     }
     
 }
