@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
         view.contentInset = .zero
         view.backgroundColor = .setColor(.bg)
         view.clipsToBounds = true
-        view.register(PhotoPickerCollectionViewCell.self, forCellWithReuseIdentifier: PhotoPickerCollectionViewCell.id)
+        view.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: HomeCollectionViewCell.id)
         view.translatesAutoresizingMaskIntoConstraints = false
         
         return view

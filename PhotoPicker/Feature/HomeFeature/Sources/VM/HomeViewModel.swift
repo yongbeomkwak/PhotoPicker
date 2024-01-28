@@ -19,7 +19,7 @@ final class HomeViewModel : ViewModelType {
     
     struct Output {
         let navigateToPhotoPicker: AnyPublisher<Void,Never>
-        let dataSource : CurrentValueSubject<[ImageEntity], Never>
+        let dataSource : CurrentValueSubject<[Data?], Never>
     }
     
     private var subscription = Set<AnyCancellable>()
@@ -33,7 +33,7 @@ final class HomeViewModel : ViewModelType {
         
         
         let outputNavigateSubject = PassthroughSubject<Void,Never>()
-        var outputDataSourceSubject = CurrentValueSubject<[ImageEntity], Never>([])
+        var outputDataSourceSubject = CurrentValueSubject<[Data?], Never>([])
         
         input.tapNavigateButton
             .sink(receiveValue: outputNavigateSubject.send(_:))
@@ -41,21 +41,8 @@ final class HomeViewModel : ViewModelType {
         
         
         input.fetchData.sink(receiveValue: {
-            
-            var index = 1
-            
-            
-            let convertedResult = $0.map { image in
-                
-                let data = ImageEntity(index:index,image: image,isSelected: false)
-                
-                index += 1
-                
-                return data
-            }
-            
-            
-            outputDataSourceSubject.send( convertedResult )
+        
+            outputDataSourceSubject.send( $0 )
             
         })
         .store(in: &subscription)
