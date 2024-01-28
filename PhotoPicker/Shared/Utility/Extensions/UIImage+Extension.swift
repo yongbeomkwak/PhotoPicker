@@ -24,77 +24,32 @@ extension UIImage {
         return newImage
     }
     
-    var fixOrientation: UIImage? {
-            if imageOrientation == .up { return self }
-            var transform = CGAffineTransform.identity
+    func rotate(degrees: CGFloat) -> UIImage {
 
-            if imageOrientation == .down || imageOrientation == .downMirrored {
-                transform = transform.translatedBy(x: size.width, y: size.height)
-                transform = transform.rotated(by: CGFloat(Double.pi))
-            }
+            /// context에 그려질 크기를 구하기 위해서 최종 회전되었을때의 전체 크기 획득
+            let rotatedViewBox: UIView = UIView(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+            let affineTransform: CGAffineTransform = CGAffineTransform(rotationAngle: degrees * CGFloat.pi / 180)
+            rotatedViewBox.transform = affineTransform
 
-            if imageOrientation == .left || imageOrientation == .leftMirrored {
-                transform = transform.translatedBy(x: size.width, y: 0)
-                transform = transform.rotated(by: CGFloat(Double.pi / 2.0))
-            }
+            /// 회전된 크기
+            let rotatedSize: CGSize = rotatedViewBox.frame.size
 
-            if imageOrientation == .right || imageOrientation == .rightMirrored {
-                transform = transform.translatedBy(x: 0, y: size.height)
-                transform = transform.rotated(by: CGFloat(-Double.pi / 2.0))
-            }
+            /// 회전한 만큼의 크기가 있을때, 필요없는 여백 부분을 제거하는 작업
+            UIGraphicsBeginImageContext(rotatedSize)
+            let bitmap: CGContext = UIGraphicsGetCurrentContext()!
+            /// 원점을 이미지의 가운데로 평행 이동
+            bitmap.translateBy(x: rotatedSize.width / 2, y: rotatedSize.height / 2)
+            /// 회전
+            bitmap.rotate(by: (degrees * CGFloat.pi / 180))
+            /// 상하 대칭 변환 후 context에 원본 이미지 그림 그리는 작업
+            bitmap.scaleBy(x: 1.0, y: -1.0)
+            bitmap.draw(cgImage!, in: CGRect(x: -size.width / 2, y: -size.height / 2, width: size.width, height: size.height))
 
-            if imageOrientation == .upMirrored || imageOrientation == .downMirrored {
-                transform = transform.translatedBy(x: size.width, y: 0)
-                transform = transform.scaledBy(x: -1, y: 1)
-            }
-
-            if imageOrientation == .leftMirrored || imageOrientation == .rightMirrored {
-                transform = transform.translatedBy(x: size.height, y: 0)
-                transform = transform.scaledBy(x: -1, y: 1)
-            }
-
-            guard let cgImage = cgImage,
-                let colorSpace = cgImage.colorSpace else { return nil }
-
-            guard let ctx = CGContext(data: nil, width: Int(size.width), height: Int(size.height),
-                                      bitsPerComponent: cgImage.bitsPerComponent, bytesPerRow: 0,
-                                      space: colorSpace,
-                                      bitmapInfo: cgImage.bitmapInfo.rawValue) else { return nil }
-
-            ctx.concatenate(transform)
-
-            if imageOrientation == .left ||
-                imageOrientation == .leftMirrored ||
-                imageOrientation == .right ||
-                imageOrientation == .rightMirrored {
-                ctx.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.height, height: size.width))
-            } else {
-                ctx.draw(cgImage, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-            }
-            guard let makeImage = ctx.makeImage() else { return nil }
-            return UIImage(cgImage: makeImage)
-        }
-
-        func crop(_ rect: CGRect, radius: CGFloat, radiusScale: CGFloat, scale: CGFloat = 1) -> UIImage? {
-            UIGraphicsBeginImageContextWithOptions(CGSize(width: rect.size.width / scale, height: rect.size.height / scale), true, 0.0)
-            draw(at: CGPoint(x: -rect.origin.x / scale, y: -rect.origin.y / scale))
-            let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+            /// 그려진 context로 부터 이미지 획득
+            let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
-            if radius == 0 {
-                return croppedImage
-            } else {
-                guard let image = croppedImage else { return nil }
-                let imageView = UIImageView(image: image)
-                let layer = imageView.layer
-                layer.masksToBounds = true
-                layer.cornerRadius = radius * radiusScale
-                UIGraphicsBeginImageContext(imageView.bounds.size)
-                if let currentContext = UIGraphicsGetCurrentContext() {
-                    layer.render(in: currentContext)
-                }
-                let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
-                UIGraphicsEndImageContext()
-                return croppedImage
-            }
+
+            return newImage
         }
+
 }

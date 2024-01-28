@@ -9,7 +9,6 @@ import Foundation
 import Combine
 
 enum RotateState : Int {
-    
     case none = -1
     case vertical = 0
     case horizontal
@@ -19,8 +18,9 @@ enum RotateState : Int {
     func next() -> RotateState {
         
         if self == .none {
-            return .vertical
+            return .horizontal
         }
+        
         
         return RotateState(rawValue:(self.rawValue+1)%4)!
     }

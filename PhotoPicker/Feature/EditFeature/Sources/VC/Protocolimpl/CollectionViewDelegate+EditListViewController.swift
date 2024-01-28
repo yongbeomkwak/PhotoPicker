@@ -19,7 +19,9 @@ extension EditListViewController : UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        DEBUG_LOG("LLL \(indexPath) \(viewModel.rotateState[indexPath.row])")
         cell.prepare(viewModel.dataes[indexPath.row],viewModel.rotateState[indexPath.row])
+        cell.clipsToBounds = true 
         
         return cell
     }
