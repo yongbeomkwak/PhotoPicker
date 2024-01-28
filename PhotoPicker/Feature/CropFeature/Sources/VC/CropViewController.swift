@@ -17,6 +17,7 @@ class CropViewController: UIViewController  {
         
         let view = NavigationBarView(frame: .zero, title: "", mode: .cut)
        
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -26,6 +27,8 @@ class CropViewController: UIViewController  {
         let image = UIImage(data: viewModel.data!)!
         
         let view = CropPickerView(frame: .zero, image: image)
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         return view
     }()
@@ -68,8 +71,6 @@ extension CropViewController {
         let image = UIImage(data: viewModel.data!)!
         
         let size = configureImageviewSize(image: image)
-        
-        DEBUG_LOG("ggg: \(size)")
         let (width,height) = (size.width,size.height)
         
         
@@ -119,6 +120,7 @@ extension CropViewController {
         
             return CGRect(x: 0, y: 0, width: resultWidth, height: resultHeight)
         }
+    
 }
 
 extension CropViewController : NavigationBarViewDelegate {

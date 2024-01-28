@@ -75,7 +75,9 @@ class CropPickerView: UIView {
         self.imageView.image = image
         addSubviews()
         setLayout()
-        
+        bindGesture()
+     
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -87,7 +89,8 @@ class CropPickerView: UIView {
 extension CropPickerView {
     
     func addSubviews() {
-        self.addSubviews(imageView,cropView,leftTopButton,leftBottomButton,rightTopButton,rightBottomButton)
+        self.addSubviews(imageView,cropView)
+        self.cropView.addSubviews(leftTopButton,leftBottomButton,rightTopButton,rightBottomButton)
     }
     
     func setLayout() {
@@ -119,6 +122,19 @@ extension CropPickerView {
         
     }
     
+    
+    func bindGesture() {
+        
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handleGesture(_:)))
+        cropView.addGestureRecognizer(panGesture)
+        
+        
+        leftTopButton.addTarget(self, action: #selector(leftTopButtonDrag(_:)), for: .touchDragInside)
+        
+        
+    }
+    
+
 
 
     

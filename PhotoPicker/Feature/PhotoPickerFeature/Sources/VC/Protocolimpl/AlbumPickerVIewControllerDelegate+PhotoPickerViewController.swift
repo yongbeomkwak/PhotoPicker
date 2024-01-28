@@ -16,8 +16,7 @@ extension PhotoPickerViewController : AlbumPickerVIewControllerDelegate {
         DispatchQueue.main.async {
             
             self.getPHAssets(album: album.album) { [weak self] result in
-                
-                
+   
                 guard let self else {return}
                 
                 self.input.fetchData.send(result.map{$0.getAssetThumbnail()})
