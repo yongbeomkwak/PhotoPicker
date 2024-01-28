@@ -69,6 +69,7 @@
 		B05738742B6642150089267C /* CropPickerView+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738732B6642150089267C /* CropPickerView+Event.swift */; };
 		B05738772B664A070089267C /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05738762B664A070089267C /* NotificationName+Extension.swift */; };
 		B057387B2B665D7D0089267C /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057387A2B665D7D0089267C /* HomeCollectionViewCell.swift */; };
+		B05738802B666B540089267C /* RotateState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057387F2B666B540089267C /* RotateState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +148,7 @@
 		B05738732B6642150089267C /* CropPickerView+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CropPickerView+Event.swift"; sourceTree = "<group>"; };
 		B05738762B664A070089267C /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		B057387A2B665D7D0089267C /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B057387F2B666B540089267C /* RotateState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotateState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -473,6 +475,8 @@
 		B057381C2B6384350089267C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B057387E2B666B460089267C /* Enum */,
+				B05738322B63ADAE0089267C /* View */,
 				B05738282B638B680089267C /* VM */,
 				B05738232B638A710089267C /* DI */,
 				B057381D2B6384400089267C /* VC */,
@@ -483,7 +487,6 @@
 		B057381D2B6384400089267C /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B05738322B63ADAE0089267C /* View */,
 				B057382D2B6399250089267C /* Protocolimpl */,
 				B057381E2B6385170089267C /* EditListViewController.swift */,
 			);
@@ -646,6 +649,14 @@
 			path = AlbumPicker;
 			sourceTree = "<group>";
 		};
+		B057387E2B666B460089267C /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				B057387F2B666B540089267C /* RotateState.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -790,6 +801,7 @@
 				B057387B2B665D7D0089267C /* HomeCollectionViewCell.swift in Sources */,
 				B05737C02B5FEAC80089267C /* Utils.swift in Sources */,
 				B05738422B63D4360089267C /* CropFactoryImpl.swift in Sources */,
+				B05738802B666B540089267C /* RotateState.swift in Sources */,
 				B057382F2B6399360089267C /* NavigationBarViewDelegate+EditListViewController.swift in Sources */,
 				B05738772B664A070089267C /* NotificationName+Extension.swift in Sources */,
 				B05738112B623BF10089267C /* CollectionViewDelegate+PhotoPickerViewController.swift in Sources */,

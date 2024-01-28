@@ -120,7 +120,7 @@ extension PhotoPickerViewController {
         navigationBarView.setRight(anchor: self.view.rightAnchor, constant: .zero)
         navigationBarView.setTop(anchor: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
         navigationBarView.setHeight(48)
-        navigationBarView.deleagte = self
+  
         
         bottomEditButtonContainerView.setLeft(anchor: self.view.leftAnchor, constant:  .zero)
         bottomEditButtonContainerView.setRight(anchor: self.view.rightAnchor, constant: .zero)
@@ -134,6 +134,7 @@ extension PhotoPickerViewController {
         
 
         bottomEditButtonContainerView.delegate = self
+        navigationBarView.deleagte = self
         collectionView.dataSource = self
         collectionView.delegate = self
 

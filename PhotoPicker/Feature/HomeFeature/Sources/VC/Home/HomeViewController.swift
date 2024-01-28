@@ -109,9 +109,6 @@ extension HomeViewController {
         
         collectionView.setBottom(anchor: photoPickerButton.topAnchor, constant: 20)
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
         photoPickerButton.setCenterX(view: self.view)
         photoPickerButton.setBottom(anchor: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 45)
         photoPickerButton.setLeft(anchor: self.view.safeAreaLayoutGuide.rightAnchor, constant: 20)
@@ -119,6 +116,9 @@ extension HomeViewController {
         photoPickerButton.setHeight(48)
     
    
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
         
     }
     
@@ -160,7 +160,9 @@ extension HomeViewController {
         NotificationCenter.default
             .publisher(for: .passFinalData,object: nil)
             .sink { notification in
-                let data = notification.object as! [Data?]
+                guard let data = notification.object as? [Data?] else {
+                    return
+                }
                 
                 input.fetchData.send(data)
             }

@@ -72,7 +72,7 @@ final class PhotoPickerViewModel : ViewModelType {
                 if data[index].isSelected {
                     // 들어온 index가 선택된 상태면 , 해제와 동시에 현재 index보다 나중에 선택된 인덱스들도 순서를 1칸 씩 당겨 준다.
                     
-                    let firstIndex = selectedItems.firstIndex(where: {$0.id == data[index].id})! // 현재 선택된 인덱스 찾음
+                    let firstIndex = selectedItems.firstIndex(where: {$0.id == data[index].id}) ?? 0 // 현재 선택된 인덱스 찾음
                 
                     // 제거할 것보다 나중에 추가된 것들은 앞으로 하나씩 당겨준다
                     for i in stride(from:firstIndex, to: selectedItems.count, by:1) {

@@ -8,25 +8,6 @@
 import Foundation
 import Combine
 
-enum RotateState : Int {
-    case none = -1
-    case vertical = 0
-    case horizontal
-    case flipVertical
-    case flipHorizontal
-    
-    func next() -> RotateState {
-        
-        if self == .none {
-            return .horizontal
-        }
-        
-        
-        return RotateState(rawValue:(self.rawValue+1)%4)!
-    }
-    
-}
-
 final class EditListViewModel : ViewModelType {
 
     var dataes:[Data?]
@@ -57,8 +38,8 @@ final class EditListViewModel : ViewModelType {
     
     func transform(input: Input) -> Output {
         
-        var outputRotateSubject = CurrentValueSubject<Int,Never>(0)
-        var outputSelelctedDataSubject = PassthroughSubject<Data?, Never>()
+        let outputRotateSubject = CurrentValueSubject<Int,Never>(0)
+        let outputSelelctedDataSubject = PassthroughSubject<Data?, Never>()
         
         input.tapCrop
             .sink { [weak self] _ in
@@ -68,14 +49,11 @@ final class EditListViewModel : ViewModelType {
             .store(in: &subscription)
         
         
-        
         input.tapRotate
             .map{input.index.value}
             .sink(receiveValue: { (index:Int) in
-                DEBUG_LOG("\(index)")
                 outputRotateSubject.send(index)
             })
-            
             .store(in: &subscription)
         
         
