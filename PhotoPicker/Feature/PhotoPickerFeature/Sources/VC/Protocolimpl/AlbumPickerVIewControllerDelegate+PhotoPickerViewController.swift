@@ -17,7 +17,6 @@ extension PhotoPickerViewController : AlbumPickerVIewControllerDelegate {
             
             self.getPHAssets(album: album.album) { [weak self] result in
                 
-                DEBUG_LOG("RES: \(result)")
                 
                 guard let self else {return}
                 

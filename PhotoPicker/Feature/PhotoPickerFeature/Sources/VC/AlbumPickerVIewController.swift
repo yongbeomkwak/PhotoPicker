@@ -51,6 +51,7 @@ class AlbumPickerVIewController: UIViewController {
             self.data = data
             
         }
+        
 
     }
     
