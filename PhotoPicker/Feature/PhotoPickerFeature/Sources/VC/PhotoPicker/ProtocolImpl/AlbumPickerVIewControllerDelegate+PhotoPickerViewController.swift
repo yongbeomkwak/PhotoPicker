@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Photos
 
 
 extension PhotoPickerViewController : AlbumPickerVIewControllerDelegate {
@@ -15,7 +16,7 @@ extension PhotoPickerViewController : AlbumPickerVIewControllerDelegate {
         
         DispatchQueue.main.async {
             
-            self.getPHAssets(album: album.album) { [weak self] result in
+            getPHAssets(album: album.album) { [weak self] result in
    
                 guard let self else {return}
                 

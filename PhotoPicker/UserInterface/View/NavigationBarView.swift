@@ -169,8 +169,10 @@ extension NavigationBarView {
             titleButton.tintColor = .white
         }
         
-        leftButton.setWidth(30)
-        leftButton.setHeight(30)
+        let size: CGFloat = 40
+        
+        leftButton.setWidth(size)
+        leftButton.setHeight(size)
         leftButton.setLeft(anchor: self.leftAnchor, constant: 20)
         leftButton.setCenterY(view: self, constant: 0)
         
@@ -180,12 +182,12 @@ extension NavigationBarView {
        
 
         
-        rightLabel.setHeight(30)
+        rightLabel.setHeight(size)
         rightLabel.setRight(anchor: self.rightButton.leftAnchor, constant: -4)
         rightLabel.setCenterY(view: self, constant: 0)
         
-        rightButton.setWidth(40)
-        rightButton.setHeight(30)
+        rightButton.setWidth(size)
+        rightButton.setHeight(size)
         rightButton.setRight(anchor: self.rightAnchor, constant: 15)
         rightButton.setCenterY(view: self, constant: 0)
 
@@ -223,8 +225,6 @@ extension NavigationBarView {
                 
             })
             .store(in: &subscription)
-        
-
         
     }
     

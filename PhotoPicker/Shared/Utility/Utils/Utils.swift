@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 public func APP_WIDTH() -> CGFloat {
     return UIScreen.main.bounds.size.width
@@ -45,3 +46,19 @@ public func DEBUG_LOG(_ msg: Any, file: String = #file, function: String = #func
         print("[\(fileName)] \(funcName)(\(line)): \(msg)")
     #endif
 }
+
+
+public func getPHAssets(album: PHFetchResult<PHAsset>, completion: @escaping ([PHAsset]) -> Void) {
+    guard 0 < album.count else { return }
+    var phAssets = [PHAsset]()
+    
+    album.enumerateObjects { asset, index, stopPointer in
+      guard index <= album.count - 1 else {
+        stopPointer.pointee = true
+        return
+      }
+      phAssets.append(asset)
+    }
+    
+    completion(phAssets)
+  }

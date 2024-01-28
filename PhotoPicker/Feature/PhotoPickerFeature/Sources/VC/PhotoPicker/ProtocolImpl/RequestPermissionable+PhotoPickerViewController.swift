@@ -46,20 +46,7 @@ extension PhotoPickerViewController : RequestPermissionable {
         
     }
     
-    func getPHAssets(album: PHFetchResult<PHAsset>, completion: @escaping ([PHAsset]) -> Void) {
-        guard 0 < album.count else { return }
-        var phAssets = [PHAsset]()
-        
-        album.enumerateObjects { asset, index, stopPointer in
-          guard index <= album.count - 1 else {
-            stopPointer.pointee = true
-            return
-          }
-          phAssets.append(asset)
-        }
-        
-        completion(phAssets)
-      }
+
     
 }
 

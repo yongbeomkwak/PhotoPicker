@@ -212,7 +212,6 @@ extension EditListViewController {
             
             viewModel.rotateState[index] = viewModel.rotateState[index].next()
                 
-                DEBUG_LOG(viewModel.rotateState)
             
                 guard let  cell = self.collectionView.cellForItem(at: IndexPath(row: index, section: .zero)) as? EditListCollectionViewCell else {
                     return
